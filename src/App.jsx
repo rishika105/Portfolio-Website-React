@@ -10,7 +10,7 @@ function App() {
    <Navbar />
    
 
-    <div className="bg-zinc-950 flex justify-center items-center w-[110vw] ml-[-80px] h-[600px] mt-[27px]">
+    <div className="bg-zinc-950 flex justify-center items-center w-screen h-[600px] mt-[27px]">
      <Squares
           speed={0.2}
           squareSize={38}
