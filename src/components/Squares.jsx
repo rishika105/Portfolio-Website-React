@@ -18,15 +18,17 @@ const Squares = ({
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-      numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;
-      numSquaresY.current = Math.ceil(canvas.height / squareSize) + 1;
-    };
 
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth; 
+        canvas.height = window.innerHeight; 
+        numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;
+        numSquaresY.current = Math.ceil(canvas.height / squareSize) + 1;
+      };
+  
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+  
 
     const drawGrid = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);

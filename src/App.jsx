@@ -9,16 +9,16 @@ function App() {
 
    <Navbar />
    
+   <div className="bg-zinc-950 w-[110vw] min-h-screen flex ml-[-100px] justify-center items-center mt-7 overflow-hidden">
+  <Squares
+    speed={0.2}
+    squareSize={38}
+    direction="diagonal"
+    borderColor="#222222"
+    hoverFillColor="#222"
+  />
+</div>
 
-    <div className="bg-zinc-950 flex justify-center items-center w-screen h-[600px] mt-[27px]">
-     <Squares
-          speed={0.2}
-          squareSize={38}
-          direction="diagonal" // up, down, left, right, diagonal
-          borderColor="#222222"
-          hoverFillColor="#222"
-        />
-     </div>
 
      {/* <div>
      <SplitText
