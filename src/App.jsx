@@ -5,13 +5,12 @@ import Squares from "./components/Squares";
 
 function App() {
   return (
-    <div className="relative">
-   <div className="absolute mt-[-270px]"> 
-   <Navbar />
-   </div>
+    <>
 
-      <div className="bg-zinc-950 flex justify-center items-center">
-     <div className="absolute">
+   <Navbar />
+   
+
+    <div className="bg-zinc-950 flex justify-center items-center w-[110vw] ml-[-80px] h-[600px] mt-[27px]">
      <Squares
           speed={0.2}
           squareSize={38}
@@ -21,7 +20,7 @@ function App() {
         />
      </div>
 
-     <div>
+     {/* <div>
      <SplitText
           text="Hello, I am Rishika!"
           className="text-5xl font-bold text-center"
@@ -32,12 +31,11 @@ function App() {
           threshold={0.2}
           rootMargin="-50px"
         />
-     </div>
+     </div>  */}
 
 
 
-      </div>
-    </div>
+      </>
   );
 }
 
