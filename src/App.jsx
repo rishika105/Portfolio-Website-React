@@ -18,7 +18,7 @@ function App() {
           hoverFillColor="#222"
         />
 
-        <div className="flex justify-center flex-col items-center absolute space-y-6">
+        <div className="flex justify-center flex-col items-center absolute space-y-6 text-white">
           <div className="flex mx-auto">
             <SplitText
               text="Hello, I am Rishika!"
@@ -37,12 +37,12 @@ function App() {
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
               animationSpeed={3}
               showBorder={false}
-              className=" text-2xl"
+              className=" text-2xl font-semibold"
             >
               A Passionate Full-Stack Developer | Exploring New Technologies
             </GradientText>
           </div>
-          <div className="text-white md:w-[50%] w-[90%]  flex items-center text-xl">
+          <div className="text-white md:w-[50%] w-[90%]  flex items-center text-xl font-medium">
             I'm a software enthusiast passionate about problem-solving, web
             development, and gaining knowledge in blockchain. I love staying
             updated with tech trends, and continuously learning to adapt.
