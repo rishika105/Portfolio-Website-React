@@ -81,7 +81,13 @@ button:focus-visible {
   display: block;
 }
 
+.reverse-x {
+  animation-direction: reverse;
+}
+
+
 
 /* 060606 dark theme */
 
 /* git add .; git commit -m "updated"; git push */
+
