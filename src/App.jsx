@@ -3,9 +3,10 @@ import GradientText from "./components/GradientText";
 import LogoWall from "./components/LogoWall";
 import Navbar from "./components/Navbar";
 import SplitText from "./components/SplitText";
-import reactbits from "./assets/react.svg"
+import reactbits from "./assets/react.svg";
 import SpotlightCard from "./components/SpotlightCard";
 import Squares from "./components/Squares";
+import { PinContainer } from "./components/PinContainer";
 
 function App() {
   const logoImgs = [
@@ -15,7 +16,7 @@ function App() {
     { imgUrl: reactbits, altText: "React Bits Logo" },
     { imgUrl: reactbits, altText: "React Bits Logo" },
     { imgUrl: reactbits, altText: "React Bits Logo" },
-    { imgUrl: reactbits, altText: "React Bits Logo" }
+    { imgUrl: reactbits, altText: "React Bits Logo" },
   ];
   return (
     <>
@@ -71,25 +72,99 @@ function App() {
             {/* // Content goes here 
           </SpotlightCard>
         </div> */}
-
-
-
-
-
       </div>
-      
-<div style={{height: '600px', width: '100%', position: 'relative'}}>
-  <LogoWall
-    items={logoImgs}
-    direction='horizontal'
-    pauseOnHover={true}
-    size='clamp(8rem, 1rem + 20vmin, 25rem)'
-    duration='60s'
-    bgColor='#060606'
-    bgAccentColor='#111111'
-  />  
-</div>
 
+      <div style={{ height: "600px", width: "100%", position: "relative" }}>
+        <LogoWall
+          items={logoImgs}
+          direction="horizontal"
+          pauseOnHover={true}
+          size="clamp(8rem, 1rem + 20vmin, 25rem)"
+          duration="60s"
+          bgColor="#060606"
+          bgAccentColor="#111111"
+        />
+      </div>
+
+    <div className="flex w-full flex-wrap">
+    <div className="h-[40rem] w-full flex items-center justify-center">
+        <PinContainer
+          title="/rishika.github.com"
+          href="https://github.com/rishika105"
+        >
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+             Github
+            </h3>
+            <div className="text-base !m-0 !p-0 font-normal">
+              <span className="text-slate-500 ">
+              I have built exciting projects and open source contributions. 
+              </span>
+            </div>
+            <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+          </div>
+        </PinContainer>
+      </div>
+
+      <div className="h-[40rem] w-full flex items-center justify-center">
+        <PinContainer
+          title="/rishika.github.com"
+          href="https://github.com/rishika105"
+        >
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+             Linked In
+            </h3>
+            <div className="text-base !m-0 !p-0 font-normal">
+              <span className="text-slate-500 ">
+              I have built exciting projects and open source contributions. 
+              </span>
+            </div>
+            <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+          </div>
+        </PinContainer>
+      </div>
+
+
+      <div className="h-[40rem] w-full flex items-center justify-center">
+        <PinContainer
+          title="/rishika.github.com"
+          href="https://github.com/rishika105"
+        >
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+             Leetcode
+            </h3>
+            <div className="text-base !m-0 !p-0 font-normal">
+              <span className="text-slate-500 ">
+              I have built exciting projects and open source contributions. 
+              </span>
+            </div>
+            <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+          </div>
+        </PinContainer>
+      </div>
+
+
+      <div className="h-[40rem] w-full flex items-center justify-center">
+        <PinContainer
+          title="/rishika.github.com"
+          href="https://github.com/rishika105"
+        >
+          <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+             Email
+            </h3>
+            <div className="text-base !m-0 !p-0 font-normal">
+              <span className="text-slate-500 ">
+              I have built exciting projects and open source contributions. 
+              </span>
+            </div>
+            <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+          </div>
+        </PinContainer>
+      </div>
+    </div>
     </>
   );
 }
