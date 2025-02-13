@@ -85,6 +85,10 @@ button:focus-visible {
   animation-direction: reverse;
 }
 
+html, body {
+  background: #060606; /* Fallback */
+ 
+}
 
 
 /* 060606 dark theme */

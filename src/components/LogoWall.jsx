@@ -127,7 +127,7 @@ function LogoWall({
           ))}
         </div>
       </div>
-
+   
       <div
         className={`${marqueeClass} reverse-x`}
         onMouseEnter={() => pauseOnHover && setIsPaused(true)}
@@ -142,6 +142,7 @@ function LogoWall({
             "gap-[calc(var(--size)/14)]",
             "min-w-full",
             "animate-scrollX reverse-x",
+            "mt-5",
             direction === "vertical" &&
               "flex-col min-h-full animate-scrollY reverse-x",
           ]
@@ -177,6 +178,7 @@ function LogoWall({
             "gap-[calc(var(--size)/14)]",
             "min-w-full",
             "animate-scrollX reverse-x",
+            "mt-5",
             direction === "vertical" &&
               "flex-col min-h-full animate-scrollY reverse-x",
           ]
