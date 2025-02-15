@@ -6,6 +6,7 @@ import SplitText from "./components/SplitText";
 import reactbits from "./assets/react.svg";
 import Squares from "./components/Squares";
 import { PinContainer } from "./components/PinContainer";
+import LetterGlitch from "./components/LetterGlitch";
 
 function App() {
   const logoImgs = [
@@ -159,6 +160,11 @@ function App() {
         </div>
       </div>
 
+
+      <h1 className="text-3xl font-bold p-3 flex bg-[#060606]">
+            My Experiences
+          </h1>
+
       <div className="w-full bg-[#060606] p-8">
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Contact Me
@@ -205,6 +211,13 @@ function App() {
             </div>
           </PinContainer>
         </div>
+
+        {/* <LetterGlitch
+          glitchSpeed={50}
+          centerVignette={true}
+          outerVignette={false}
+          smooth={true}
+        /> */}
       </div>
     </>
   );
