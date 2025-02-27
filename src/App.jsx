@@ -162,8 +162,8 @@ function App() {
 
 
       <h1 className="text-3xl font-bold p-3 flex bg-[#060606]">
-            My Experiences
-          </h1>
+        My Experiences
+      </h1>
 
       <div className="w-full bg-[#060606] p-8">
         <h1 className="text-3xl font-bold text-white text-center mb-8">
