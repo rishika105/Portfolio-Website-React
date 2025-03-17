@@ -7,86 +7,76 @@ import reactbits from "./assets/react.svg";
 import Squares from "./components/Squares";
 import { PinContainer } from "./components/PinContainer";
 import LetterGlitch from "./components/LetterGlitch";
+import reactIcon from "./assets/react.svg";
+import SpotlightCard from "./components/SpotlightCard";
+
+import springbootIcon from "./assets/springboot.png";
+import Folder from "./components/Folder";
+import { BentoGridLayout } from "./components/BentoGridLayout";
+import Lanyard from "./components/Lanyard";
+import { Canvas } from "@react-three/fiber";
 
 function App() {
   const logoImgs = [
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg",
+      imgUrl: "https://img.icons8.com/?size=100&id=QADwelVnDrSS&format=png&color=FFFFFF",
       altText: "HTML5 Logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg",
+      imgUrl: "https://img.icons8.com/?size=100&id=UpSCHTwpywad&format=png&color=FFFFFF",
+      altText: "CSS3 Logo",
+    },
+    {
+      imgUrl: "https://img.icons8.com/?size=100&id=102838&format=png&color=FFFFFF",
+      altText: "JavaScript Logo",
+    },
+    {
+      imgUrl: "https://img.icons8.com/?size=100&id=0FC8MqL9J16f&format=png&color=FFFFFF",
+      altText: "typescript Logo",
+    },
+    {
+      imgUrl: reactIcon,
       altText: "React Bits Logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
-      altText: "React Bits Logo",
+      imgUrl: "https://img.icons8.com/?size=100&id=71256&format=png&color=FFFFFF",
+      altText: "Angular Logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-      altText: "React Bits Logo",
+      imgUrl: springbootIcon,
+      altText: "springboot logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
-      altText: "React Bits Logo",
+      imgUrl: "https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=FFFFFF",
+      altText: "express logo",
+    },
+
+    {
+      imgUrl: "https://img.icons8.com/?size=100&id=t9oCxEN7McHZ&format=png&color=FFFFFF",
+      altText: "Node.js Logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
-      altText: "React Bits Logo",
+      imgUrl: "https://img.icons8.com/?size=100&id=WC9GOvjtKVuH&format=png&color=FFFFFF",
+      altText: "mongoDB logo",
+    },
+
+    {
+      imgUrl: "https://img.icons8.com/?size=100&id=39858&format=png&color=FFFFFF",
+      altText: "my sql logo",
+    }, {
+      imgUrl: "https://img.icons8.com/?size=100&id=GflC6KLkdd0Y&format=png&color=FFFFFF",
+      altText: "figma logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg",
-      altText: "React Bits Logo",
+      imgUrl: "https://img.icons8.com/?size=100&id=KIcFwp9MNQL5&format=png&color=FFFFFF",
+      altText: "postman logo",
     },
     {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl: "https://cdn.worldvectorlogo.com/logos/angular-icon.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl:
-        "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl: "https://www.vectorlogo.zone/logos/springio/springio-icon.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl: "https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl:
-        "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
-      altText: "React Bits Logo",
-    },
+      imgUrl: "https://img.icons8.com/?size=100&id=32891&format=png&color=FFFFFF",
+      altText: "github logo",
+    }
   ];
+
   return (
     <>
       <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
@@ -144,8 +134,8 @@ function App() {
       </div>
 
       <div className="relative mt-0">
-        <div style={{ height: "600px", width: "100%", position: "relative" }}>
-          <h1 className="text-3xl font-bold p-3 flex bg-[#060606]">
+        <div style={{ height: "400px", width: "100%", position: "relative" }}>
+          <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
           </h1>
           <LogoWall
@@ -161,9 +151,11 @@ function App() {
       </div>
 
 
-      <h1 className="text-3xl font-bold p-3 flex bg-[#060606]">
-        My Experiences
+      <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
+        About me
       </h1>
+
+      <BentoGridLayout />
 
       <div className="w-full bg-[#060606] p-8">
         <h1 className="text-3xl font-bold text-white text-center mb-8">
@@ -218,6 +210,10 @@ function App() {
           outerVignette={false}
           smooth={true}
         /> */}
+
+<Canvas>
+  <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+</Canvas>
       </div>
     </>
   );
