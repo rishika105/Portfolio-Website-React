@@ -13,8 +13,11 @@ import SpotlightCard from "./components/SpotlightCard";
 import springbootIcon from "./assets/springboot.png";
 import Folder from "./components/Folder";
 import { BentoGridLayout } from "./components/BentoGridLayout";
-import Lanyard from "./components/Lanyard";
-import { Canvas } from "@react-three/fiber";
+import Hyperspeed from "./components/Hyperspeed";
+import Threads from "./components/Threads";
+import Stack from "./components/Stack";
+import Aurora from "./components/Aurora";
+
 
 function App() {
   const logoImgs = [
@@ -77,6 +80,15 @@ function App() {
     }
   ];
 
+
+  const images = [
+    { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
+    { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
+    { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
+    { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
+  ];
+
+
   return (
     <>
       <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
@@ -133,6 +145,21 @@ function App() {
         </div> */}
       </div>
 
+      <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <Threads
+          amplitude={1}
+          distance={0}
+          enableMouseInteraction={true}
+        />
+      </div>
+
+
+
+      <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
+        About me
+      </h1>
+      <BentoGridLayout />
+
       <div className="relative mt-0">
         <div style={{ height: "400px", width: "100%", position: "relative" }}>
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
@@ -150,12 +177,18 @@ function App() {
         </div>
       </div>
 
-
-      <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
-        About me
+<div className="w-full bg-[#060606] p-8 mx-auto">
+      <h1 className="text-3xl font-bold text-white text-center mb-8">
+       My Projects
       </h1>
-
-      <BentoGridLayout />
+<Stack
+        randomRotation={true}
+        sensitivity={180}
+        sendToBackOnClick={false}
+        cardDimensions={{ width: 200, height: 200 }}
+        cardsData={images}
+      />
+</div>
 
       <div className="w-full bg-[#060606] p-8">
         <h1 className="text-3xl font-bold text-white text-center mb-8">
@@ -204,6 +237,47 @@ function App() {
           </PinContainer>
         </div>
 
+        {/* 
+        <Hyperspeed
+          effectOptions={{
+            onSpeedUp: () => { },
+            onSlowDown: () => { },
+            distortion: 'turbulentDistortion',
+            length: 400,
+            roadWidth: 10,
+            islandWidth: 2,
+            lanesPerRoad: 4,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 20,
+            lightPairsPerRoadWay: 40,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -160],
+            carLightsLength: [400 * 0.03, 400 * 0.2],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.8, 0.8],
+            carFloorSeparation: [0, 5],
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xFFFFFF,
+              brokenLines: 0xFFFFFF,
+              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+              sticks: 0x03B3C3,
+            }
+          }}
+        /> */}
+
         {/* <LetterGlitch
           glitchSpeed={50}
           centerVignette={true}
@@ -211,9 +285,6 @@ function App() {
           smooth={true}
         /> */}
 
-<Canvas>
-  <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
-</Canvas>
       </div>
     </>
   );
