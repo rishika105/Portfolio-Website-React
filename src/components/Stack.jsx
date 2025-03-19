@@ -8,10 +8,7 @@ function CardRotate({ children, onSendToBack, sensitivity }) {
   const rotateY = useTransform(x, [-100, 100], [-60, 60]);
 
   function handleDragEnd(_, info) {
-    if (
-      Math.abs(info.offset.x) > sensitivity ||
-      Math.abs(info.offset.y) > sensitivity
-    ) {
+    if (Math.abs(info.offset.x) > sensitivity || Math.abs(info.offset.y) > sensitivity) {
       onSendToBack();
     } else {
       x.set(0);
@@ -21,7 +18,7 @@ function CardRotate({ children, onSendToBack, sensitivity }) {
 
   return (
     <motion.div
-      className="absolute cursor-grab"
+      className="absolute cursor-grab z-[1]"
       style={{ x, y, rotateX, rotateY }}
       drag
       dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
@@ -37,21 +34,12 @@ function CardRotate({ children, onSendToBack, sensitivity }) {
 export default function Stack({
   randomRotation = false,
   sensitivity = 200,
-  cardDimensions = { width: 208, height: 208 },
+  cardDimensions = { width: 320, height: 400 }, // Increased card size
   cardsData = [],
   animationConfig = { stiffness: 260, damping: 20 },
-  sendToBackOnClick = false
+  sendToBackOnClick = false,
 }) {
-  const [cards, setCards] = useState(
-    cardsData.length
-      ? cardsData
-      : [
-        { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
-        { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
-        { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
-        { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
-      ]
-  );
+  const [cards, setCards] = useState(cardsData);
 
   const sendToBack = (id) => {
     setCards((prev) => {
@@ -65,17 +53,15 @@ export default function Stack({
 
   return (
     <div
-      className="relative"
+      className="relative mx-auto"
       style={{
         width: cardDimensions.width,
         height: cardDimensions.height,
-        perspective: 600,
+        perspective: 1000,
       }}
     >
       {cards.map((card, index) => {
-        const randomRotate = randomRotation
-          ? Math.random() * 10 - 5 // Random degree between -5 and 5
-          : 0;
+        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
 
         return (
           <CardRotate
@@ -84,11 +70,11 @@ export default function Stack({
             sensitivity={sensitivity}
           >
             <motion.div
-              className="rounded-2xl overflow-hidden border-4 border-white"
+              className="rounded-xl bg-white dark:bg-neutral-900 shadow-lg p-4 border border-neutral-200 dark:border-neutral-800 z-[2]"
               onClick={() => sendToBackOnClick && sendToBack(card.id)}
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
-                scale: 1 + index * 0.06 - cards.length * 0.06,
+                scale: 1 + index * 0.04 - cards.length * 0.04,
                 transformOrigin: "90% 90%",
               }}
               initial={false}
@@ -104,9 +90,19 @@ export default function Stack({
             >
               <img
                 src={card.img}
-                alt={`card-${card.id}`}
-                className="w-full h-full object-cover pointer-events-none"
+                alt={card.title}
+                className="w-full h-40 object-cover rounded-md mb-4 pointer-events-none"
               />
+              <h2 className="text-xl font-semibold mb-2">{card.title}</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{card.description}</p>
+              <a
+                href={card.repoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline text-sm"
+              >
+                GitHub Repo →
+              </a>
             </motion.div>
           </CardRotate>
         );
