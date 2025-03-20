@@ -106,6 +106,15 @@ function App() {
 
 
 
+  const images = [
+    { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
+    { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
+    { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
+    { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
+  ];
+
+
+
   return (
     <>
       <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
@@ -168,7 +177,18 @@ function App() {
       <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
         About me
       </h1>
-   
+
+      <div className="relative mx-auto flex justify-center items-center p-10 w-[500px] h-[500px]">
+      <Stack
+        randomRotation={true}
+        sensitivity={180}
+        sendToBackOnClick={false}
+        cardDimensions={{ width: 200, height: 200 }}
+        cardsData={images}
+      />
+        </div>
+
+
 
       <div className="relative mt-0">
         <div style={{ height: "400px", width: "100%", position: "relative" }}>
@@ -187,18 +207,8 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full bg-[#060606] p-8 mx-auto">
-        <h1 className="text-3xl font-bold text-white text-center mb-8">My Projects</h1>
-        <Stack
-          randomRotation={true}
-          sensitivity={180}
-          sendToBackOnClick={true}
-          cardDimensions={{ width: 320, height: 400 }} // Big cards
-          cardsData={projects} // Pass your projects here
-        />
-      </div>
 
-      
+
       <div style={{ width: '100%', height: '350px', position: 'relative' }}>
         <Threads
           amplitude={1}
@@ -302,12 +312,13 @@ function App() {
           outerVignette={false}
           smooth={true}
         /> */}
+   
 
-
-
-        <Footer/>
+        <Footer />
 
       </div>
+
+
     </>
   );
 }
