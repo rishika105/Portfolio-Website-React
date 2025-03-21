@@ -17,6 +17,7 @@ import Threads from "./components/Threads";
 import Stack from "./components/Stack";
 import Aurora from "./components/Aurora";
 import Footer from "./components/Footer";
+import SplashCursor from "./components/SplashCursor";
 
 
 function App() {
@@ -178,20 +179,13 @@ function App() {
         About me
       </h1>
 
-      <div className="relative mx-auto flex justify-center items-center p-10 w-[500px] h-[500px]">
-      <Stack
-        randomRotation={true}
-        sensitivity={180}
-        sendToBackOnClick={false}
-        cardDimensions={{ width: 200, height: 200 }}
-        cardsData={images}
-      />
-        </div>
 
 
 
       <div className="relative mt-0">
+
         <div style={{ height: "400px", width: "100%", position: "relative" }}>
+          {/* <SplashCursor/> */}
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
           </h1>
@@ -318,6 +312,15 @@ function App() {
 
       </div>
 
+      {/* <div className="absolute mx-auto" style={{ height: "500px" }}>
+  <Stack
+    randomRotation={true}
+    sensitivity={180}
+    sendToBackOnClick={false}
+    cardDimensions={{ width: 200, height: 200 }}
+    cardsData={images}
+  />
+</div> */}
 
     </>
   );

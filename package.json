@@ -12,6 +12,9 @@
   "dependencies": {
     "@react-spring/web": "^9.7.5",
     "@tabler/icons-react": "^3.31.0",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",
     "meshline": "^3.3.1",
