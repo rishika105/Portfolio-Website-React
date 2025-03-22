@@ -19,6 +19,7 @@ function LogoWall({
     "mx-auto",
     "max-w-full",
     "p-[20px_10px]",
+    "z-50",
     // Apply text and bg from CSS variables if desired
     // (We do that inline style below)
     direction === "vertical" && "flex-row justify-center h-full",

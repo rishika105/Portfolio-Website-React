@@ -18,9 +18,12 @@ import Stack from "./components/Stack";
 import Aurora from "./components/Aurora";
 import Footer from "./components/Footer";
 import SplashCursor from "./components/SplashCursor";
+import { useRef } from "react";
+
 
 
 function App() {
+  const containerRef = useRef(null);
   const logoImgs = [
     {
       imgUrl: "https://img.icons8.com/?size=100&id=QADwelVnDrSS&format=png&color=FFFFFF",
@@ -183,9 +186,8 @@ function App() {
 
 
       <div className="relative mt-0">
-
-        <div style={{ height: "400px", width: "100%", position: "relative" }}>
-          {/* <SplashCursor/> */}
+        <div ref={containerRef} style={{ height: "400px", width: "100%", position: "relative" }}>
+          <SplashCursor containerRef={containerRef} />
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
           </h1>
