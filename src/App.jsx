@@ -9,7 +9,7 @@ import { PinContainer } from "./components/PinContainer";
 import LetterGlitch from "./components/LetterGlitch";
 import reactIcon from "./assets/react.svg";
 import SpotlightCard from "./components/SpotlightCard";
-
+import { SiMinutemailer } from "react-icons/si";
 import springbootIcon from "./assets/springboot.png";
 import Folder from "./components/Folder";
 import Hyperspeed from "./components/Hyperspeed";
@@ -19,6 +19,8 @@ import Aurora from "./components/Aurora";
 import Footer from "./components/Footer";
 import SplashCursor from "./components/SplashCursor";
 import { useRef } from "react";
+import { SparklesCore } from "./components/Sparkles";
+import { HoverBorderGradient } from "./components/HoverBorderGradient";
 
 
 
@@ -162,6 +164,18 @@ function App() {
             development, and gaining knowledge in blockchain. I love staying
             updated with tech trends, and continuously learning to adapt.
           </div>
+
+
+    <div className="m-40 flex justify-center text-center">
+      <HoverBorderGradient
+        containerClassName="rounded-full"
+        as="button"
+        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
+       <SiMinutemailer />
+        <span>Let's Connect</span>
+      </HoverBorderGradient>
+    </div>
+  
         </div>
 
         {/* sec-2 */}
@@ -183,11 +197,9 @@ function App() {
       </h1>
 
 
-
-
       <div className="relative mt-0">
         <div ref={containerRef} style={{ height: "400px", width: "100%", position: "relative" }}>
-          <SplashCursor containerRef={containerRef} />
+          {/* <SplashCursor containerRef={containerRef} /> */}
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
           </h1>
@@ -202,6 +214,39 @@ function App() {
           />
         </div>
       </div>
+
+    <div
+      className="h-[30rem] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
+      <h1
+        className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
+           Code in action. Ideas in motion.
+      </h1>
+      <div className="w-[40rem] h-40 relative mt-4">
+        {/* Gradients */}
+        <div
+          className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+        <div
+          className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+        <div
+          className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+        <div
+          className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+        {/* Core component */}
+        <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={1}
+          particleDensity={1200}
+          className="w-full h-full"
+          particleColor="#FFFFFF" />
+
+        {/* Radial Gradient to prevent sharp edges */}
+        <div
+          className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+      </div>
+    </div>
+
 
 
 
@@ -232,7 +277,7 @@ function App() {
 
           {/* LinkedIn */}
           <PinContainer title="LinkedIn" href="https://linkedin.com/in/rishika">
-            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 text-white text-center">
+            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-[#40ffaa] via-[#4079ff] to-[#40ffaa] text-white text-center"            >
               <h3 className="text-lg font-bold">LinkedIn</h3>
               <p className="text-sm text-slate-200 mt-2">
                 Connect with me for professional networking and opportunities.
@@ -308,7 +353,7 @@ function App() {
           outerVignette={false}
           smooth={true}
         /> */}
-   
+
 
         <Footer />
 
