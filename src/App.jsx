@@ -166,16 +166,29 @@ function App() {
           </div>
 
 
-    <div className="m-40 flex justify-center text-center">
-      <HoverBorderGradient
-        containerClassName="rounded-full"
-        as="button"
-        className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
-       <SiMinutemailer />
-        <span>Let's Connect</span>
-      </HoverBorderGradient>
-    </div>
-  
+          <div className="m-40 flex justify-center text-center">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              onClick={() => {
+                // Reset hover state
+                document.activeElement.blur(); // Remove focus from button
+                // Delay navigation slightly
+                setTimeout(() => {
+                  window.open(
+                    'https://mail.google.com/mail/?view=cm&fs=1&to=yourmail@example.com&su=Let%27s%20Connect&body=Hi%20there!',
+                    '_blank'
+                  );
+                }, 100); // 100ms delay
+              }}
+              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 px-4 py-2"
+            >
+              <SiMinutemailer />
+              <span>Let's Connect</span>
+            </HoverBorderGradient>
+
+          </div>
+
         </div>
 
         {/* sec-2 */}
@@ -215,40 +228,42 @@ function App() {
         </div>
       </div>
 
-    <div
-      className="h-[30rem] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <h1
-        className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
-           Code in action. Ideas in motion.
-      </h1>
-      <div className="w-[40rem] h-40 relative mt-4">
-        {/* Gradients */}
-        <div
-          className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-        <div
-          className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-        <div
-          className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-        <div
-          className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+      <div
+        className="h-[30rem] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <h1
+          className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
+          Code in action. Ideas in motion.
+        </h1>
+        <div className="w-[40rem] h-40 relative mt-4">
+          {/* Gradients */}
+          <div
+            className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div
+            className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+          <div
+            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div
+            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
-        {/* Core component */}
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1}
-          particleDensity={1200}
-          className="w-full h-full"
-          particleColor="#FFFFFF" />
+          {/* Core component */}
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#FFFFFF" />
 
-        {/* Radial Gradient to prevent sharp edges */}
-        <div
-          className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          {/* Radial Gradient to prevent sharp edges */}
+          <div
+            className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        </div>
       </div>
-    </div>
 
 
-
+      <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
+            My Projects
+          </h1>
 
       <div style={{ width: '100%', height: '350px', position: 'relative' }}>
         <Threads
