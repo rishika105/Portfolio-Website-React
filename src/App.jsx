@@ -21,6 +21,7 @@ import SplashCursor from "./components/SplashCursor";
 import { useRef } from "react";
 import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
+import ProjectStack from "./components/Stack";
 
 
 
@@ -86,40 +87,45 @@ function App() {
     }
   ];
 
+
+
   const projects = [
-    {
-      id: 1,
-      title: "Real-time Traffic Visualization",
-      description: "Live traffic data visualization using TomTom API and React.",
-      repoLink: "https://github.com/yourusername/traffic-visualizer",
-      img: "/traffic.png", // Add your own image path or URL
-    },
-    {
-      id: 2,
-      title: "Blockchain Supply Chain",
-      description: "Fraud-proof product tracking with IoT + Blockchain.",
-      repoLink: "https://github.com/yourusername/supplychain-blockchain",
-      img: "/blockchain.png",
-    },
-    {
-      id: 3,
-      title: "Fintech Wallet",
-      description: "A MERN-based digital wallet with real-time analytics.",
-      repoLink: "https://github.com/yourusername/fintech-wallet",
-      img: "/wallet.png",
-    },
+  {
+    id: 1,
+    title: "Study Notion - EdTech Platform",
+    description: "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication and payment integration.",
+    repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
+    demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
+    tags: ["React", "Redux", "Node.js", "MongoDB", "Razorpay"],
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+
+  {
+    id: 2,
+    title: "Event Management System",
+    description: "A collaborative project using Advanced Java with MVC + DAO design pattern.",
+    repoLink: "https://github.com/rishika105/Event-Management-Advanced-Java",
+    tags: ["JSP", "Servlet", "Tomcat", "MySQL", "Razorpay"],
+    image: "https://images.unsplash.com/photo-1540317580384-e5d500436cd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+
+  {
+    id: 3,
+    title: "E-commerce Platform",
+    description: "A full-stack E-commerce application built with Angular and Spring Boot with authentication and payment features.",
+    repoLink: "https://github.com/rishika105/Ecommerce",
+    tags: ["Angular", "Spring Boot", "MySQL", "Cloudinary", "JWT"],
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: 4,
+    title: "AI Story Builder",
+    description: "An AI-powered tool that generates creative stories based on user inputs.",
+    repoLink: "https://github.com/rishika105/AI-Story-Builder",
+    tags: ["AI", "React", "Node.js", "OpenAI API"],
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+  }
   ];
-
-
-
-  const images = [
-    { id: 1, img: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format" },
-    { id: 2, img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=500&auto=format" },
-    { id: 3, img: "https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format" },
-    { id: 4, img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=500&auto=format" }
-  ];
-
-
 
   return (
     <>
@@ -262,8 +268,18 @@ function App() {
 
 
       <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
-            My Projects
-          </h1>
+        My Projects
+      </h1>
+
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <ProjectStack
+          randomRotation={true}
+          sensitivity={150}
+          sendToBackOnClick={true}
+          cardDimensions={{ width: 400, height: 520 }}
+          projects={projects}
+        />
+      </div>
 
       <div style={{ width: '100%', height: '350px', position: 'relative' }}>
         <Threads
@@ -278,111 +294,8 @@ function App() {
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Contact Me
         </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
-          {/* GitHub */}
-          <PinContainer title="GitHub" href="https://github.com/rishika105">
-            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 text-white text-center">
-              <h3 className="text-lg font-bold">GitHub</h3>
-              <p className="text-sm text-slate-200 mt-2">
-                Check out my projects and open-source contributions.
-              </p>
-            </div>
-          </PinContainer>
-
-          {/* LinkedIn */}
-          <PinContainer title="LinkedIn" href="https://linkedin.com/in/rishika">
-            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-[#40ffaa] via-[#4079ff] to-[#40ffaa] text-white text-center"            >
-              <h3 className="text-lg font-bold">LinkedIn</h3>
-              <p className="text-sm text-slate-200 mt-2">
-                Connect with me for professional networking and opportunities.
-              </p>
-            </div>
-          </PinContainer>
-
-          {/* LeetCode */}
-          <PinContainer title="LeetCode" href="https://leetcode.com/rishika">
-            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 text-white text-center">
-              <h3 className="text-lg font-bold">LeetCode</h3>
-              <p className="text-sm text-slate-200 mt-2">
-                Explore my coding solutions and problem-solving skills.
-              </p>
-            </div>
-          </PinContainer>
-
-          {/* Email */}
-          <PinContainer title="Email" href="mailto:rishika@example.com">
-            <div className="flex flex-col items-center justify-center p-6 w-[250px] h-[15rem] rounded-lg bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 text-white text-center">
-              <h3 className="text-lg font-bold">Email</h3>
-              <p className="text-sm text-slate-200 mt-2">
-                Reach out to me for collaborations or queries.
-              </p>
-            </div>
-          </PinContainer>
-        </div>
-
-        {/* 
-        <Hyperspeed
-          effectOptions={{
-            onSpeedUp: () => { },
-            onSlowDown: () => { },
-            distortion: 'turbulentDistortion',
-            length: 400,
-            roadWidth: 10,
-            islandWidth: 2,
-            lanesPerRoad: 4,
-            fov: 90,
-            fovSpeedUp: 150,
-            speedUp: 2,
-            carLightsFade: 0.4,
-            totalSideLightSticks: 20,
-            lightPairsPerRoadWay: 40,
-            shoulderLinesWidthPercentage: 0.05,
-            brokenLinesWidthPercentage: 0.1,
-            brokenLinesLengthPercentage: 0.5,
-            lightStickWidth: [0.12, 0.5],
-            lightStickHeight: [1.3, 1.7],
-            movingAwaySpeed: [60, 80],
-            movingCloserSpeed: [-120, -160],
-            carLightsLength: [400 * 0.03, 400 * 0.2],
-            carLightsRadius: [0.05, 0.14],
-            carWidthPercentage: [0.3, 0.5],
-            carShiftX: [-0.8, 0.8],
-            carFloorSeparation: [0, 5],
-            colors: {
-              roadColor: 0x080808,
-              islandColor: 0x0a0a0a,
-              background: 0x000000,
-              shoulderLines: 0xFFFFFF,
-              brokenLines: 0xFFFFFF,
-              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
-              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
-              sticks: 0x03B3C3,
-            }
-          }}
-        /> */}
-
-        {/* <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={true}
-          outerVignette={false}
-          smooth={true}
-        /> */}
-
-
         <Footer />
-
       </div>
-
-      {/* <div className="absolute mx-auto" style={{ height: "500px" }}>
-  <Stack
-    randomRotation={true}
-    sensitivity={180}
-    sendToBackOnClick={false}
-    cardDimensions={{ width: 200, height: 200 }}
-    cardsData={images}
-  />
-</div> */}
 
     </>
   );
