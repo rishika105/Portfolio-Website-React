@@ -90,49 +90,56 @@ function App() {
 
 
   const projects = [
-  {
-    id: 1,
-    title: "Study Notion - EdTech Platform",
-    description: "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication and payment integration.",
-    repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
-    demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
-    tags: ["React", "Redux", "Node.js", "MongoDB", "Razorpay"],
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-  },
+    {
+      id: 1,
+      title: "E-commerce Platform",
+      description: "A full-stack E-commerce application built with Angular and Spring Boot with authentication roles and payment features.",
+      repoLink: "https://github.com/rishika105/Ecommerce",
+      tags: ["Angular", "Spring Boot", "MySQL", "Cloudinary", "JWT"],
+      image: "https://b1622763.smushcdn.com/1622763/wp-content/uploads/2024/11/eCommerce-Platform-Optimization-1024x577.jpg?lossy=1&strip=1&webp=1"
+    },
 
-  {
-    id: 2,
-    title: "Event Management System",
-    description: "A collaborative project using Advanced Java with MVC + DAO design pattern.",
-    repoLink: "https://github.com/rishika105/Event-Management-Advanced-Java",
-    tags: ["JSP", "Servlet", "Tomcat", "MySQL", "Razorpay"],
-    image: "https://images.unsplash.com/photo-1540317580384-e5d500436cd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-  },
+    {
+      id: 2,
+      title: "Event Management System",
+      description: "A collaborative project using Advanced Java with MVC + DAO design pattern.",
+      repoLink: "https://github.com/rishika105/Event-Management-Advanced-Java",
+      tags: ["JSP", "Servlet", "Tomcat", "MySQL", "Razorpay"],
+      image: "https://www.cvent.com/sites/default/files/styles/focus_scale_and_crop_800x450/public/image/2024-09/Event%20management%20software_body.png?h=567b5b6d&itok=QegGeX1a"
+    },
 
-  {
-    id: 3,
-    title: "E-commerce Platform",
-    description: "A full-stack E-commerce application built with Angular and Spring Boot with authentication and payment features.",
-    repoLink: "https://github.com/rishika105/Ecommerce",
-    tags: ["Angular", "Spring Boot", "MySQL", "Cloudinary", "JWT"],
-    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-  },
-  {
-    id: 4,
-    title: "AI Story Builder",
-    description: "An AI-powered tool that generates creative stories based on user inputs.",
-    repoLink: "https://github.com/rishika105/AI-Story-Builder",
-    tags: ["AI", "React", "Node.js", "OpenAI API"],
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-  }
+    {
+      id: 3,
+      title: "AI Story Builder",
+      description: "A fun storytelling game where you and the AI take turns building wild tales across genres — fantasy, mystery, sci-fi & more!",
+      repoLink: "https://github.com/rishika105/AI-Story-Builder",
+      tags: ["AI", "React", "Node.js", "Express.js", "MongoDB", "Gemini API", "Three.js"],
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      id: 4,
+      title: "EdTech Platform",
+      description: "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication roles, course management and payment integration.",
+      repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
+      demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
+      tags: ["React", "Redux", "Node.js", "Express.js", "MongoDB", "Razorpay", "Cloudinary", "JWT", "Smtp"],
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    },
   ];
+
+
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
 
   return (
     <>
+      {/* Main Section */}
       <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
-        <Navbar />
+        {/* Header Section */}
+        <Navbar aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef}/>
 
-        {/* hero section */}
+        {/* Hero Section */}
         <Squares
           speed={0.2}
           squareSize={38}
@@ -141,7 +148,7 @@ function App() {
           hoverFillColor="#222"
         />
 
-        <div className="flex justify-center flex-col items-center absolute space-y-6 text-white">
+        <div className="flex justify-center flex-col items-center absolute space-y-6 text-white" >
           <div className="flex mx-auto">
             <SplitText
               text="Hello, I am Rishika!"
@@ -165,12 +172,12 @@ function App() {
               A Passionate Full-Stack Developer | Exploring New Technologies
             </GradientText>
           </div>
+
           <div className="text-gray-300 md:w-[50%] w-[90%]  flex items-center text-xl font-medium">
             I'm a software enthusiast passionate about problem-solving, web
             development, and gaining knowledge in blockchain. I love staying
             updated with tech trends, and continuously learning to adapt.
           </div>
-
 
           <div className="m-40 flex justify-center text-center">
             <HoverBorderGradient
@@ -192,36 +199,24 @@ function App() {
               <SiMinutemailer />
               <span>Let's Connect</span>
             </HoverBorderGradient>
-
           </div>
-
         </div>
-
-        {/* sec-2 */}
-        {/* <div>
-          <SpotlightCard
-            className="custom-spotlight-card"
-            spotlightColor="rgba(0, 229, 255, 0.2)"
-          >
-            {/* // Content goes here 
-          </SpotlightCard>
-        </div> */}
       </div>
 
+      {/* About Section */}
+      <div ref={aboutRef} className="mt-14 h-screen">
+        <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
+          About me
+        </h1>
+      </div>
 
-
-
-      <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
-        About me
-      </h1>
-
-
+      {/* My Tools and Technologies */}
       <div className="relative mt-0">
         <div ref={containerRef} style={{ height: "400px", width: "100%", position: "relative" }}>
           {/* <SplashCursor containerRef={containerRef} /> */}
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
-          </h1>
+          </h1 >
           <LogoWall
             items={logoImgs}
             direction="horizontal"
@@ -234,8 +229,9 @@ function App() {
         </div>
       </div>
 
+      {/* Quote Section */}
       <div
-        className="h-[30rem] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
+        className="h-[500px] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
         <h1
           className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
           Code in action. Ideas in motion.
@@ -266,21 +262,24 @@ function App() {
         </div>
       </div>
 
+      {/* Project Section */}
+      <div ref={projectsRef} className="h-screen relative mt-0">
+        <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
+          My Projects
+        </h1>
 
-      <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
-        My Projects
-      </h1>
-
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <ProjectStack
-          randomRotation={true}
-          sensitivity={150}
-          sendToBackOnClick={true}
-          cardDimensions={{ width: 400, height: 520 }}
-          projects={projects}
-        />
+        <div className=" flex items-center justify-center p-4">
+          <ProjectStack
+            randomRotation={true}
+            sensitivity={150}
+            sendToBackOnClick={true}
+            cardDimensions={{ width: 420, height: 520 }}
+            projects={projects}
+          />
+        </div>
       </div>
-
+    
+      {/* Thread Section */}
       <div style={{ width: '100%', height: '350px', position: 'relative' }}>
         <Threads
           amplitude={1}
@@ -289,16 +288,28 @@ function App() {
         />
       </div>
 
-
-      <div className="w-full bg-[#060606] p-8">
+      {/* Contact Section */}
+      <div ref={contactRef} className="w-full bg-[#060606] p-8">
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Contact Me
         </h1>
-        <Footer />
       </div>
 
+      {/* Footer Section */}
+      <Footer />
     </>
   );
 }
 
 export default App;
+
+
+{/* sec-2 */ }
+{/* <div>
+          <SpotlightCard
+            className="custom-spotlight-card"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
+          >
+            {/* // Content goes here 
+          </SpotlightCard>
+        </div> */}

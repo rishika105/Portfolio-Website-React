@@ -95,52 +95,55 @@ export default function ProjectStack({
                 height: cardDimensions.height,
               }}
             >
-              <div className="h-full flex flex-col relative">
-                {/* Project image with gradient overlay */}
-                <div className="h-48 overflow-hidden relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                </div>
-                
-                {/* Project title with neon accent */}
-                <div className="px-6 pt-4">
-                  <h3 className="text-2xl font-bold text-white mb-1">
-                    {project.title}
-                  </h3>
-                  <div className="h-[2px] w-20 bg-gradient-to-r from-[#40ffaa] to-[#4079ff] mb-3" />
-                </div>
-                
-                {/* Project description */}
-                <div className="px-6 flex-1">
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                
-                {/* Tags */}
-                {project.tags && (
-                  <div className="px-6 py-3 flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span 
-                        key={tag} 
-                        className="px-3 py-1 bg-gray-900 rounded-full text-xs text-[#40ffaa] border border-gray-800"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+              <div className="h-full flex flex-col relative gap-4">
+                <div className="flex-1 flex flex-col">
+                  {/* Project image with gradient overlay */}
+                  <div className="h-48 overflow-hidden relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   </div>
-                )}
-                
+
+                  {/* Project title with neon accent */}
+                  <div className="px-6 pt-4">
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      {project.title}
+                    </h3>
+                    <div className="h-[2px] w-20 bg-gradient-to-r from-[#40ffaa] to-[#4079ff] mb-3" />
+
+
+                    {/* Project description */}
+                    <div className=" px-3 flex mx-auto">
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  {project.tags && (
+                    <div className="px-6 py-3 flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-gray-900 rounded-full text-xs text-[#40ffaa] border border-gray-800"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 {/* Links with hover effects */}
-                <div className="px-6 pb-6 flex justify-between mt-auto">
+                <div className="px-6 pb-6 flex justify-between">
                   {project.repoLink && (
-                    <a 
-                      href={project.repoLink} 
-                      target="_blank" 
+                    <a
+                      href={project.repoLink}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-gray-400 hover:text-[#4079ff] transition-colors duration-300 group"
                     >
@@ -149,9 +152,9 @@ export default function ProjectStack({
                     </a>
                   )}
                   {project.demoLink && (
-                    <a 
-                      href={project.demoLink} 
-                      target="_blank" 
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-gray-400 hover:text-[#40ffaa] transition-colors duration-300 group"
                     >
@@ -160,7 +163,9 @@ export default function ProjectStack({
                     </a>
                   )}
                 </div>
-                
+
+
+
                 {/* Subtle sparkle effect */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <SparklesCore
@@ -172,7 +177,9 @@ export default function ProjectStack({
                     particleColor="#FFFFFF"
                   />
                 </div>
+
               </div>
+
             </motion.div>
           </CardRotate>
         );
