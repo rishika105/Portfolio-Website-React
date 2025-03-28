@@ -123,8 +123,11 @@ export default function ProjectStack({
                     </div>
                   </div>
 
-                  {/* Tags */}
-                  {project.tags && (
+        
+                </div>
+
+                          {/* Tags */}
+                          {project.tags && (
                     <div className="px-6 py-3 flex flex-wrap gap-2">
                       {project.tags.map(tag => (
                         <span
@@ -136,7 +139,6 @@ export default function ProjectStack({
                       ))}
                     </div>
                   )}
-                </div>
 
                 {/* Links with hover effects */}
                 <div className="px-6 pb-6 flex justify-between">
@@ -172,7 +174,7 @@ export default function ProjectStack({
                     background="transparent"
                     minSize={0.4}
                     maxSize={1}
-                    particleDensity={20}
+                    particleDensity={15}
                     className="w-full h-full"
                     particleColor="#FFFFFF"
                   />
