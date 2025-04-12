@@ -22,6 +22,8 @@ import { useRef } from "react";
 import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
+import TextCursor from "./components/TextCursor";
+import AnimatedContent from "./components/AnimatedContent";
 
 
 
@@ -137,7 +139,7 @@ function App() {
       {/* Main Section */}
       <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
         {/* Header Section */}
-        <Navbar aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef}/>
+        <Navbar aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef} />
 
         {/* Hero Section */}
         <Squares
@@ -226,6 +228,17 @@ function App() {
             bgColor="#060606"
             bgAccentColor="#111111"
           />
+          {/* 
+          <TextCursor
+            text="Hello!"
+            delay={0.01}
+            spacing={80}
+            followMouseDirection={true}
+            randomFloat={true}
+            exitDuration={0.3}
+            removalInterval={20}
+            maxPoints={10}
+          /> */}
         </div>
       </div>
 
@@ -278,7 +291,7 @@ function App() {
           />
         </div>
       </div>
-    
+
       {/* Thread Section */}
       <div style={{ width: '100%', height: '350px', position: 'relative' }}>
         <Threads
@@ -293,6 +306,39 @@ function App() {
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Contact Me
         </h1>
+
+        <AnimatedContent
+          distance={150}
+          direction="horizontal"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1.1}
+          threshold={0.2}
+        >
+          <div>Content to Animate</div>
+        </AnimatedContent>
+
+
+        <PinContainer 
+  title="Example" 
+  href="#" 
+  borderColor="cyan" 
+  borderSpeed="5s"
+>
+  <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-[20rem] h-[20rem]">
+    <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
+      Gradient Border
+    </h3>
+    <div className="text-base !m-0 !p-0 font-normal">
+      <span className="text-slate-500">
+        With animated gradient border effect.
+      </span>
+    </div>
+    <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+  </div>
+</PinContainer>
       </div>
 
       {/* Footer Section */}
