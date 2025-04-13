@@ -24,11 +24,20 @@ import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
 import TextCursor from "./components/TextCursor";
 import AnimatedContent from "./components/AnimatedContent";
-
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Lanyard from "./components/Lanyard";
 
 
 function App() {
+
   const containerRef = useRef(null);
+
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+
+
   const logoImgs = [
     {
       imgUrl: "https://img.icons8.com/?size=100&id=QADwelVnDrSS&format=png&color=FFFFFF",
@@ -91,6 +100,7 @@ function App() {
 
 
 
+
   const projects = [
     {
       id: 1,
@@ -130,9 +140,27 @@ function App() {
   ];
 
 
-  const aboutRef = useRef(null);
-  const projectsRef = useRef(null);
-  const contactRef = useRef(null);
+
+
+  const contactItems = [
+    {
+      name: "GitHub",
+      icon: "https://img.icons8.com/?size=100&id=AZOZNnY73haj&format=png&color=000000",
+      link: "https://github.com/yourusername",
+      openInNewTab: true
+    },
+    {
+      name: "LinkedIn",
+      icon: "https://img.icons8.com/?size=100&id=PmVIP6qPDgZv&format=png&color=000000",
+      link: "https://linkedin.com/in/yourprofile",
+      openInNewTab: true
+    },
+    {
+      name: "Email",
+      icon: "https://img.icons8.com/?size=100&id=37246&format=png&color=000000",
+      link: "mailto:you@example.com"
+    }
+  ];
 
   return (
     <>
@@ -210,15 +238,71 @@ function App() {
         <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
           About me
         </h1>
+
+        <h1>I am a Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex voluptate placeat dolores molestias eos numquam
+          iste modi optio! Non ratione iure veniam commodi dolores totam reiciendis illum iste, tempora saepe! Natus, aliquam iusto.
+          Reiciendis nemo quas inventore id corporis. Eaque, ipsum? Incidunt velit id perferendis magnam tenetur suscipit fugiat laborum!</h1>
+
+        <Hyperspeed
+          effectOptions={{
+            onSpeedUp: () => { },
+            onSlowDown: () => { },
+            distortion: 'turbulentDistortion',
+            length: 400,
+            roadWidth: 10,
+            islandWidth: 2,
+            lanesPerRoad: 4,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.4,
+            totalSideLightSticks: 20,
+            lightPairsPerRoadWay: 40,
+            shoulderLinesWidthPercentage: 0.05,
+            brokenLinesWidthPercentage: 0.1,
+            brokenLinesLengthPercentage: 0.5,
+            lightStickWidth: [0.12, 0.5],
+            lightStickHeight: [1.3, 1.7],
+            movingAwaySpeed: [60, 80],
+            movingCloserSpeed: [-120, -160],
+            carLightsLength: [400 * 0.03, 400 * 0.2],
+            carLightsRadius: [0.05, 0.14],
+            carWidthPercentage: [0.3, 0.5],
+            carShiftX: [-0.8, 0.8],
+            carFloorSeparation: [0, 5],
+            colors: {
+              roadColor: 0x080808,
+              islandColor: 0x0a0a0a,
+              background: 0x000000,
+              shoulderLines: 0xFFFFFF,
+              brokenLines: 0xFFFFFF,
+              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+              sticks: 0x03B3C3,
+            }
+          }}
+        />
       </div>
 
+      <div className="h-[20rem]"></div>
+
       {/* My Tools and Technologies */}
-      <div className="relative mt-0">
+      <div className="relative h-screen">
         <div ref={containerRef} style={{ height: "400px", width: "100%", position: "relative" }}>
           {/* <SplashCursor containerRef={containerRef} /> */}
           <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
             My Tools and Technologies
           </h1 >
+          <TextCursor
+            text="⚛️"
+            delay={0.01}
+            spacing={80}
+            followMouseDirection={true}
+            randomFloat={true}
+            exitDuration={0.3}
+            removalInterval={20}
+            maxPoints={10}
+          />
           <LogoWall
             items={logoImgs}
             direction="horizontal"
@@ -228,17 +312,8 @@ function App() {
             bgColor="#060606"
             bgAccentColor="#111111"
           />
-          {/* 
-          <TextCursor
-            text="Hello!"
-            delay={0.01}
-            spacing={80}
-            followMouseDirection={true}
-            randomFloat={true}
-            exitDuration={0.3}
-            removalInterval={20}
-            maxPoints={10}
-          /> */}
+          
+
         </div>
       </div>
 
@@ -302,46 +377,24 @@ function App() {
       </div>
 
       {/* Contact Section */}
-      <div ref={contactRef} className="w-full bg-[#060606] p-8">
-        <h1 className="text-3xl font-bold text-white text-center mb-8">
+      <div ref={contactRef} className="w-full bg-[#060606] p-8 h-screen">
+        <h1 className="text-3xl font-bold text-white text-center">
           Contact Me
         </h1>
+        <div className="flex flex-wrap justify-center">
+          <Folder
+            folderName="Open"
+            items={contactItems}
+            color="#00d8ff"
+            size={2.5}
+          />
 
-        <AnimatedContent
-          distance={150}
-          direction="horizontal"
-          reverse={false}
-          config={{ tension: 80, friction: 20 }}
-          initialOpacity={0.2}
-          animateOpacity
-          scale={1.1}
-          threshold={0.2}
-        >
-          <div>Content to Animate</div>
-        </AnimatedContent>
-
-
-        <PinContainer 
-  title="Example" 
-  href="#" 
-  borderColor="cyan" 
-  borderSpeed="5s"
->
-  <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-[20rem] h-[20rem]">
-    <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
-      Gradient Border
-    </h3>
-    <div className="text-base !m-0 !p-0 font-normal">
-      <span className="text-slate-500">
-        With animated gradient border effect.
-      </span>
-    </div>
-    <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
-  </div>
-</PinContainer>
+        </div>
       </div>
-
+      {/* <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> */}
       {/* Footer Section */}
+
+
       <Footer />
     </>
   );

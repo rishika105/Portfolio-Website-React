@@ -26,6 +26,7 @@ const Folder = ({
     size = 1,
     items = [],
     className = "",
+    folderName = "Folder",
 }) => {
     const maxItems = 3;
     const papers = items.slice(0, maxItems);
@@ -40,8 +41,8 @@ const Folder = ({
 
     const folderBackColor = darkenColor(color, 0.08);
     const paper1 = darkenColor("#ffffff", 0.1);
-    const paper2 = darkenColor("#ffffff", 0.05);
-    const paper3 = "#ffffff";
+    const paper2 = darkenColor("#ffffff", 0.1);
+    const paper3 = darkenColor("#ffffff", 0.1);
 
     const handleClick = () => {
         setOpen((prev) => !prev);
@@ -50,10 +51,14 @@ const Folder = ({
         }
     };
 
-    const handlePaperMouseMove = (
-        e,
-        index
-    ) => {
+    const handlePaperClick = (e, item) => {
+        e.stopPropagation();
+        if (item?.link) {
+            window.open(item.link, item?.openInNewTab ? "_blank" : "_self");
+        }
+    };
+
+    const handlePaperMouseMove = (e, index) => {
         if (!open) return;
         const rect = e.currentTarget.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -67,10 +72,7 @@ const Folder = ({
         });
     };
 
-    const handlePaperMouseLeave = (
-        e,
-        index
-    ) => {
+    const handlePaperMouseLeave = (e, index) => {
         setPaperOffsets((prev) => {
             const newOffsets = [...prev];
             newOffsets[index] = { x: 0, y: 0 };
@@ -89,16 +91,15 @@ const Folder = ({
     // Outer scale style
     const scaleStyle = { transform: `scale(${size})` };
 
-const getOpenTransform = (index) => {
-  if (index === 0) return "translate(-130%, -60%) rotate(-10deg)";
-  if (index === 1) return "translate(-50%, -70%) rotate(0deg)";
-  if (index === 2) return "translate(15%, -55%) rotate(10deg)";
-  return "";
-};
-
+    const getOpenTransform = (index) => {
+        if (index === 0) return "translate(-130%, -60%) rotate(-10deg)";
+        if (index === 1) return "translate(-50%, -70%) rotate(0deg)";
+        if (index === 2) return "translate(15%, -55%) rotate(10deg)";
+        return "";
+    };
 
     return (
-        <div style={scaleStyle} className="relative pt-[20%] mx-auto">
+        <div style={scaleStyle} className="relative pt-[10%] mx-auto w-[130px]">
             <div
                 className={`group relative transition-all duration-200 ease-in cursor-pointer ${!open ? "hover:-translate-y-2" : ""
                     }`}
@@ -108,6 +109,9 @@ const getOpenTransform = (index) => {
                 }}
                 onClick={handleClick}
             >
+                <div className="text-center mb-2 font-medium text-gray-700">
+                    {folderName}
+                </div>
                 <div
                     className="relative w-[130px] h-[110px] rounded-tl-0 rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"
                     style={{ backgroundColor: folderBackColor }}
@@ -130,6 +134,7 @@ const getOpenTransform = (index) => {
                         return (
                             <div
                                 key={i}
+                                onClick={(e) => handlePaperClick(e, item)}
                                 onMouseMove={(e) => handlePaperMouseMove(e, i)}
                                 onMouseLeave={(e) => handlePaperMouseLeave(e, i)}
                                 className={`absolute z-20 bottom-[10%] left-1/2 transition-all duration-300 ease-in-out ${!open
@@ -140,12 +145,17 @@ const getOpenTransform = (index) => {
                                     ...(!open ? {} : { transform: transformStyle }),
                                     backgroundColor: i === 0 ? paper1 : i === 1 ? paper2 : paper3,
                                     borderRadius: "10px",
+                                    cursor: item?.link ? "pointer" : "default",
                                 }}
                             >
-                                <div className="w-full h-full flex items-center justify-center">
-                                    {item}
+                                <div className="w-full h-full flex flex-col items-center justify-center p-2">
+                                    {item?.icon && (
+                                        <img src={item.icon} className="z-50"/>
+                                    )}
+                                    {/* <div className="text-xs font-medium text-center">
+                                        {item?.name}
+                                    </div> */}
                                 </div>
-
                             </div>
                         );
                     })}

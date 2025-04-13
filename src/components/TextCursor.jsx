@@ -91,7 +91,7 @@ const TextCursor = ({
   }, [removalInterval]);
 
   return (
-    <div ref={containerRef} className="w-full h-full relative">
+    <div ref={containerRef} className="w-full h-full absolute z-50">
       <div className="absolute inset-0 pointer-events-none">
         <AnimatePresence>
           {trail.map((item) => (

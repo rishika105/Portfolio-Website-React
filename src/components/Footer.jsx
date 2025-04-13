@@ -7,7 +7,6 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
 
 
-
         {/* Branding */}
         <div className="text-lg font-semibold">
           © {new Date().getFullYear()} | All Rights Reserved
@@ -44,14 +43,8 @@ export default function Footer() {
           >
             <FaLinkedin />
           </a>
-          <a
-            href="https://twitter.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-400 transition"
-          >
-            <FaTwitter />
-          </a>
+   <img src="https://img.icons8.com/?size=100&id=jwgkA4zn2axH&format=png&color=000000"/>
+   <img src="https://img.icons8.com/?size=100&id=ijEOz9F5NVdY&format=png&color=000000"/>
         </div>
 
       </div>

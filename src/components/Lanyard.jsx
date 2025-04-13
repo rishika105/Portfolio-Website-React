@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
-import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
+import { BallCollider, CuboidCollider, Physics, RigidBody, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
 import cardGLB from "../assets/card.glb";
@@ -48,9 +48,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     typeof window !== 'undefined' && window.innerWidth < 1024
   );
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
+  (fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
+  useJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
+  useJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
   useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.50, 0]]);
 
   useEffect(() => {
