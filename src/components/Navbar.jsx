@@ -1,33 +1,41 @@
-const Navbar = ({ aboutRef, projectsRef, contactRef }) => {
+import ShinyText from "./ShinyText";
+
+const Navbar = ({ homeRef, aboutRef, projectsRef, contactRef }) => {
+  const scrollTo = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="bg-zinc-950 flex fixed top-0 left-0 w-full h-[60px] z-50">
-      <div className="space-x-6 flex mx-auto mt-4">
-        <span
-          className="cursor-pointer text-white"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          Home
-        </span>
-        <span
-          className="cursor-pointer text-white"
-          onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth" })}
-        >
-          About
-        </span>
-        <span
-          className="cursor-pointer text-white"
-          onClick={() => projectsRef.current.scrollIntoView({ behavior: "smooth" })}
-        >
-          Projects
-        </span>
-        <span
-          className="cursor-pointer text-white"
-          onClick={() => contactRef.current.scrollIntoView({ behavior: "smooth" })}
-        >
-          Contact
-        </span>
+    <nav className="bg-zinc-950 fixed top-0 left-0 w-full h-16 z-50 flex items-center shadow-lg">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-center space-x-8">
+          <button
+            onClick={() => scrollTo(homeRef)}
+            className="bg-transparent border-none outline-none p-0 m-0 focus:outline-none"
+          >
+            <ShinyText text="Home" speed={5} />
+          </button>
+          <button
+            onClick={() => scrollTo(aboutRef)}
+            className="bg-transparent border-none outline-none p-0 m-0 focus:outline-none"
+          >
+            <ShinyText text="About" speed={5} />
+          </button>
+          <button
+            onClick={() => scrollTo(projectsRef)}
+            className="bg-transparent border-none outline-none p-0 m-0 focus:outline-none"
+          >
+            <ShinyText text="Projects" speed={5} />
+          </button>
+          <button
+            onClick={() => scrollTo(contactRef)}
+            className="bg-transparent border-none outline-none p-0 m-0 focus:outline-none"
+          >
+            <ShinyText text="Contact" speed={5} />
+          </button>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

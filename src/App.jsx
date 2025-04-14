@@ -219,7 +219,7 @@ function App() {
                 // Delay navigation slightly
                 setTimeout(() => {
                   window.open(
-                    'https://mail.google.com/mail/?view=cm&fs=1&to=yourmail@example.com&su=Let%27s%20Connect&body=Hi%20there!',
+                    'https://mail.google.com/mail/?view=cm&fs=1&to=rishikaagarwal2316@gmail.com&su=Let%27s%20Connect&body=Hi%20there!',
                     '_blank'
                   );
                 }, 100); // 100ms delay
@@ -331,7 +331,7 @@ function App() {
           <div
             className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
           <div
-            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#D856BF] to-transparent h-[5px] w-1/4 blur-sm" />
           <div
             className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
