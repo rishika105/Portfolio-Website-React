@@ -3,35 +3,24 @@ import GradientText from "./components/GradientText";
 import LogoWall from "./components/LogoWall";
 import Navbar from "./components/Navbar";
 import SplitText from "./components/SplitText";
-import reactbits from "./assets/react.svg";
 import Squares from "./components/Squares";
-import { PinContainer } from "./components/PinContainer";
-import LetterGlitch from "./components/LetterGlitch";
 import reactIcon from "./assets/react.svg";
-import SpotlightCard from "./components/SpotlightCard";
 import { SiMinutemailer } from "react-icons/si";
 import springbootIcon from "./assets/springboot.png";
 import Folder from "./components/Folder";
 import Hyperspeed from "./components/Hyperspeed";
 import Threads from "./components/Threads";
-import Stack from "./components/Stack";
-import Aurora from "./components/Aurora";
 import Footer from "./components/Footer";
-import SplashCursor from "./components/SplashCursor";
 import { useRef } from "react";
 import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
 import TextCursor from "./components/TextCursor";
-import AnimatedContent from "./components/AnimatedContent";
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import Lanyard from "./components/Lanyard";
 
 
 function App() {
 
   const containerRef = useRef(null);
-
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
@@ -162,240 +151,270 @@ function App() {
     }
   ];
 
+
+
   return (
     <>
       {/* Main Section */}
-      <div className="relative bg-zinc-950 min-h-screen flex w-screen justify-center items-center overflow-hidden">
-        {/* Header Section */}
+      <div className="relative bg-[#060606] min-h-screen flex w-screen justify-center items-center overflow-hidden">
+        {/* Navigation */}
         <Navbar aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef} />
 
-        {/* Hero Section */}
-        <Squares
-          speed={0.2}
-          squareSize={38}
-          direction="diagonal"
-          borderColor="#222222"
-          hoverFillColor="#222"
-        />
+        {/* Main Content */}
+        <main className="flex-1 space-y-24 w-full">
+          {/* Hero Section */}
+          <section className="relative h-screen flex items-center justify-center">
+            <div className="w-full h-full">
+              <Squares
+                speed={0.2}
+                squareSize={38}
+                direction="diagonal"
+                borderColor="#222222"
+                hoverFillColor="#222"
+              />
 
-        <div className="flex justify-center flex-col items-center absolute space-y-6 text-white" >
-          <div className="flex mx-auto">
-            <SplitText
-              text="Hello, I am Rishika!"
-              className="text-6xl font-bold"
-              delay={50}
-              animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
-              animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
-              easing="easeOutCubic"
-              threshold={0.2}
-              rootMargin="-50px"
+            </div>
+            <div className="flex justify-center flex-col items-center absolute inset-0 m-6 space-y-6 text-white" >
+              <div className="flex mx-auto">
+                <SplitText
+                  text="Hello, I am Rishika!"
+                  className="text-6xl font-bold"
+                  delay={50}
+                  animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
+                  animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
+                  easing="easeOutCubic"
+                  threshold={0.2}
+                  rootMargin="-50px"
+                />
+              </div>
+
+              <div>
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={3}
+                  showBorder={false}
+                  className=" text-2xl font-semibold md:w-[100%] w-[90%]"
+                >
+                  A Passionate Full-Stack Developer | Exploring New Technologies
+                </GradientText>
+              </div>
+
+              <div className="text-gray-300 md:w-[50%] w-[90%]  flex items-center text-xl font-medium">
+                I'm a software enthusiast passionate about problem-solving, web
+                development, and gaining knowledge in blockchain. I love staying
+                updated with tech trends, and continuously learning to adapt.
+              </div>
+
+              <div className="m-40 flex justify-center text-center">
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="button"
+                  onClick={() => {
+                    // Reset hover state
+                    document.activeElement.blur(); // Remove focus from button
+                    // Delay navigation slightly
+                    setTimeout(() => {
+                      window.open(
+                        'https://mail.google.com/mail/?view=cm&fs=1&to=rishikaagarwal2316@gmail.com&su=Let%27s%20Connect&body=Hi%20there!',
+                        '_blank'
+                      );
+                    }, 100); // 100ms delay
+                  }}
+                  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 px-4 py-2"
+                >
+                  <SiMinutemailer />
+                  <span>Let's Connect</span>
+                </HoverBorderGradient>
+              </div>
+            </div>
+          </section>
+
+
+          {/* About Section */}
+          <section ref={aboutRef} className="scroll-mt-16 h-screen flex items-center justify-center">
+            <div className="">
+              <h1 className="text-3xl font-bold p-5">
+                About me
+              </h1>
+
+              <div className="relative flex flex-col items-center justify-center">
+                <div className="flex flex-col z-50">
+                  <p className="text-center max-w-3xl mx-auto text-lg sm:text-xl px-4">
+                    From debugging my first “Hello World” to building full-stack applications and solving 400+ problems on LeetCode and GFG — my journey has been fueled by curiosity and growth. Whether it's freelance work or hackathons, I love turning complex problems into elegant solutions.
+                  </p>
+
+                  <p className="mt-10 text-center italic text-sm text-gray-400">
+                    “I believe growth isn’t linear — it’s a hyperspeed journey through ideas, code, and creativity.”
+                  </p>
+                  <p className="mt-8 text-center text-md text-gray-300">
+                    When I’m not coding or crushing bugs, you’ll find me sketching, reading books, or vibing with music.
+                  </p></div>
+
+
+                <div className="w-full h-screen absolute">
+                  <Hyperspeed
+                    effectOptions={{
+                      onSpeedUp: () => { },
+                      onSlowDown: () => { },
+                      distortion: 'turbulentDistortion',
+                      length: 400,
+                      roadWidth: 10,
+                      islandWidth: 2,
+                      lanesPerRoad: 4,
+                      fov: 90,
+                      fovSpeedUp: 150,
+                      speedUp: 2,
+                      carLightsFade: 0.4,
+                      totalSideLightSticks: 20,
+                      lightPairsPerRoadWay: 40,
+                      shoulderLinesWidthPercentage: 0.05,
+                      brokenLinesWidthPercentage: 0.1,
+                      brokenLinesLengthPercentage: 0.5,
+                      lightStickWidth: [0.12, 0.5],
+                      lightStickHeight: [1.3, 1.7],
+                      movingAwaySpeed: [60, 80],
+                      movingCloserSpeed: [-120, -160],
+                      carLightsLength: [400 * 0.03, 400 * 0.2],
+                      carLightsRadius: [0.05, 0.14],
+                      carWidthPercentage: [0.3, 0.5],
+                      carShiftX: [-0.8, 0.8],
+                      carFloorSeparation: [0, 5],
+                      colors: {
+                        roadColor: 0x080808,
+                        islandColor: 0x0a0a0a,
+                        background: 0x000000,
+                        shoulderLines: 0xFFFFFF,
+                        brokenLines: 0xFFFFFF,
+                        leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
+                        rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
+                        sticks: 0x03B3C3,
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          {/* My Tools and Technologies */}
+          <section className="relative h-screen flex items-center justify-center">
+            <div ref={containerRef}>
+              {/* <SplashCursor containerRef={containerRef} /> */}
+              <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
+                My Tools and Technologies
+              </h1 >
+              <TextCursor
+                text="⚛️"
+                delay={0.01}
+                spacing={80}
+                followMouseDirection={true}
+                randomFloat={true}
+                exitDuration={0.3}
+                removalInterval={20}
+                maxPoints={10}
+              />
+              <LogoWall
+                items={logoImgs}
+                direction="horizontal"
+                pauseOnHover={true}
+                size="clamp(8rem, 1rem + 20vmin, 25rem)"
+                duration="60s"
+                bgColor="#060606"
+                bgAccentColor="#111111"
+              />
+
+
+            </div>
+          </section>
+
+          {/* Quote Section */}
+          <section className="relative h-screen flex flex-col items-center justify-center">
+            <div
+              className=" bg-[#060606] overflow-hidden rounded-md">
+              <h1
+                className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
+                Code in action. Ideas in motion.
+              </h1>
+              <div className="w-[40rem] h-40 relative mt-4">
+                {/* Gradients */}
+                <div
+                  className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+                <div
+                  className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#D856BF] to-transparent h-px w-3/4" />
+                <div
+                  className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent  via-indigo-500 to-transparent h-[5px] w-1/4 blur-sm" />
+                <div
+                  className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+                {/* Core component */}
+                <SparklesCore
+                  background="transparent"
+                  minSize={0.4}
+                  maxSize={1}
+                  particleDensity={1200}
+                  className="w-full h-full"
+                  particleColor="#FFFFFF" />
+
+                {/* Radial Gradient to prevent sharp edges */}
+                <div
+                  className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+              </div>
+            </div>
+          </section>
+
+          {/* Project Section */}
+          <section ref={projectsRef} className="h-full scroll-mt-16">
+            <h1 className="text-3xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
+              My Projects
+            </h1>
+
+            <div className=" flex items-center justify-center p-4">
+              <ProjectStack
+                randomRotation={true}
+                sensitivity={150}
+                sendToBackOnClick={true}
+                cardDimensions={{ width: 420, height: 520 }}
+                projects={projects}
+              />
+            </div>
+          </section>
+
+          {/* Thread Section */}
+          <div className="relative h-[300px] w-screen">
+            <Threads
+              amplitude={1}
+              distance={0}
+              enableMouseInteraction={true}
             />
           </div>
 
-          <div>
-            <GradientText
-              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-              animationSpeed={3}
-              showBorder={false}
-              className=" text-2xl font-semibold md:w-[100%] w-[90%]"
-            >
-              A Passionate Full-Stack Developer | Exploring New Technologies
-            </GradientText>
+
+          {/* Contact Section */}
+          <div ref={contactRef} className="relative gap-4 h-screen flex flex-col scroll-mt-16">
+            <h1 className="text-3xl font-bold text-white text-center">
+              Connect with me
+            </h1>
+            <div className="">
+              <Folder
+                folderName="Open"
+                items={contactItems}
+                color="#00d8ff"
+                size={2.5}
+              />
+
+            </div>
+
           </div>
 
-          <div className="text-gray-300 md:w-[50%] w-[90%]  flex items-center text-xl font-medium">
-            I'm a software enthusiast passionate about problem-solving, web
-            development, and gaining knowledge in blockchain. I love staying
-            updated with tech trends, and continuously learning to adapt.
-          </div>
+        </main >
 
-          <div className="m-40 flex justify-center text-center">
-            <HoverBorderGradient
-              containerClassName="rounded-full"
-              as="button"
-              onClick={() => {
-                // Reset hover state
-                document.activeElement.blur(); // Remove focus from button
-                // Delay navigation slightly
-                setTimeout(() => {
-                  window.open(
-                    'https://mail.google.com/mail/?view=cm&fs=1&to=rishikaagarwal2316@gmail.com&su=Let%27s%20Connect&body=Hi%20there!',
-                    '_blank'
-                  );
-                }, 100); // 100ms delay
-              }}
-              className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 px-4 py-2"
-            >
-              <SiMinutemailer />
-              <span>Let's Connect</span>
-            </HoverBorderGradient>
-          </div>
-        </div>
+
       </div>
-
-      {/* About Section */}
-      <div ref={aboutRef} className="mt-14 h-screen">
-        <h1 className="text-3xl font-bold p-3 flex justify-center items-center bg-[#060606]">
-          About me
-        </h1>
-
-        <h1>I am a Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex voluptate placeat dolores molestias eos numquam
-          iste modi optio! Non ratione iure veniam commodi dolores totam reiciendis illum iste, tempora saepe! Natus, aliquam iusto.
-          Reiciendis nemo quas inventore id corporis. Eaque, ipsum? Incidunt velit id perferendis magnam tenetur suscipit fugiat laborum!</h1>
-
-        <Hyperspeed
-          effectOptions={{
-            onSpeedUp: () => { },
-            onSlowDown: () => { },
-            distortion: 'turbulentDistortion',
-            length: 400,
-            roadWidth: 10,
-            islandWidth: 2,
-            lanesPerRoad: 4,
-            fov: 90,
-            fovSpeedUp: 150,
-            speedUp: 2,
-            carLightsFade: 0.4,
-            totalSideLightSticks: 20,
-            lightPairsPerRoadWay: 40,
-            shoulderLinesWidthPercentage: 0.05,
-            brokenLinesWidthPercentage: 0.1,
-            brokenLinesLengthPercentage: 0.5,
-            lightStickWidth: [0.12, 0.5],
-            lightStickHeight: [1.3, 1.7],
-            movingAwaySpeed: [60, 80],
-            movingCloserSpeed: [-120, -160],
-            carLightsLength: [400 * 0.03, 400 * 0.2],
-            carLightsRadius: [0.05, 0.14],
-            carWidthPercentage: [0.3, 0.5],
-            carShiftX: [-0.8, 0.8],
-            carFloorSeparation: [0, 5],
-            colors: {
-              roadColor: 0x080808,
-              islandColor: 0x0a0a0a,
-              background: 0x000000,
-              shoulderLines: 0xFFFFFF,
-              brokenLines: 0xFFFFFF,
-              leftCars: [0xD856BF, 0x6750A2, 0xC247AC],
-              rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
-              sticks: 0x03B3C3,
-            }
-          }}
-        />
-      </div>
-
-      <div className="h-[20rem]"></div>
-
-      {/* My Tools and Technologies */}
-      <div className="relative h-screen">
-        <div ref={containerRef} style={{ height: "400px", width: "100%", position: "relative" }}>
-          {/* <SplashCursor containerRef={containerRef} /> */}
-          <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
-            My Tools and Technologies
-          </h1 >
-          <TextCursor
-            text="⚛️"
-            delay={0.01}
-            spacing={80}
-            followMouseDirection={true}
-            randomFloat={true}
-            exitDuration={0.3}
-            removalInterval={20}
-            maxPoints={10}
-          />
-          <LogoWall
-            items={logoImgs}
-            direction="horizontal"
-            pauseOnHover={true}
-            size="clamp(8rem, 1rem + 20vmin, 25rem)"
-            duration="60s"
-            bgColor="#060606"
-            bgAccentColor="#111111"
-          />
-          
-
-        </div>
-      </div>
-
-      {/* Quote Section */}
-      <div
-        className="h-[500px] w-full bg-[#060606] flex flex-col items-center justify-center overflow-hidden rounded-md">
-        <h1
-          className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
-          Code in action. Ideas in motion.
-        </h1>
-        <div className="w-[40rem] h-40 relative mt-4">
-          {/* Gradients */}
-          <div
-            className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-          <div
-            className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-          <div
-            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#D856BF] to-transparent h-[5px] w-1/4 blur-sm" />
-          <div
-            className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
-
-          {/* Core component */}
-          <SparklesCore
-            background="transparent"
-            minSize={0.4}
-            maxSize={1}
-            particleDensity={1200}
-            className="w-full h-full"
-            particleColor="#FFFFFF" />
-
-          {/* Radial Gradient to prevent sharp edges */}
-          <div
-            className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-        </div>
-      </div>
-
-      {/* Project Section */}
-      <div ref={projectsRef} className="h-screen relative mt-0">
-        <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
-          My Projects
-        </h1>
-
-        <div className=" flex items-center justify-center p-4">
-          <ProjectStack
-            randomRotation={true}
-            sensitivity={150}
-            sendToBackOnClick={true}
-            cardDimensions={{ width: 420, height: 520 }}
-            projects={projects}
-          />
-        </div>
-      </div>
-
-      {/* Thread Section */}
-      <div style={{ width: '100%', height: '350px', position: 'relative' }}>
-        <Threads
-          amplitude={1}
-          distance={0}
-          enableMouseInteraction={true}
-        />
-      </div>
-
-      {/* Contact Section */}
-      <div ref={contactRef} className="w-full bg-[#060606] p-8 h-screen">
-        <h1 className="text-3xl font-bold text-white text-center">
-          Contact Me
-        </h1>
-        <div className="flex flex-wrap justify-center">
-          <Folder
-            folderName="Open"
-            items={contactItems}
-            color="#00d8ff"
-            size={2.5}
-          />
-
-        </div>
-      </div>
-      {/* <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> */}
       {/* Footer Section */}
 
 
-      <Footer />
+      < Footer />
     </>
   );
 }
