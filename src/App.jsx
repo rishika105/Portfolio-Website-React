@@ -16,6 +16,7 @@ import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
 import TextCursor from "./components/TextCursor";
+import Orb from "./components/Orb";
 
 
 function App() {
@@ -156,7 +157,7 @@ function App() {
   return (
     <>
       {/* Main Section */}
-      <div className="relative bg-[#060606] min-h-screen flex w-screen justify-center items-center overflow-hidden">
+      <div className="relative bg-[#060606] text-white min-h-screen flex w-screen justify-center items-center overflow-hidden">
         {/* Navigation */}
         <Navbar aboutRef={aboutRef} projectsRef={projectsRef} contactRef={contactRef} />
 
@@ -178,7 +179,7 @@ function App() {
               <div className="flex mx-auto">
                 <SplitText
                   text="Hello, I am Rishika!"
-                  className="text-6xl font-bold"
+                  className="text-4xl lg:text-6xl font-bold"
                   delay={50}
                   animationFrom={{ opacity: 0, transform: "translate3d(0,50px,0)" }}
                   animationTo={{ opacity: 1, transform: "translate3d(0,0,0)" }}
@@ -193,19 +194,19 @@ function App() {
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={3}
                   showBorder={false}
-                  className=" text-2xl font-semibold md:w-[100%] w-[90%]"
+                  className=" text-2xl font-semibold md:w-[70%] lg:w-[100%] w-[90%]"
                 >
                   A Passionate Full-Stack Developer | Exploring New Technologies
                 </GradientText>
               </div>
 
-              <div className="text-gray-300 md:w-[50%] w-[90%]  flex items-center text-xl font-medium">
+              <div className="text-gray-300 w-full text-center md:w-[50%]  flex items-center text-xl font-medium">
                 I'm a software enthusiast passionate about problem-solving, web
                 development, and gaining knowledge in blockchain. I love staying
                 updated with tech trends, and continuously learning to adapt.
               </div>
 
-              <div className="m-40 flex justify-center text-center">
+              <div className="flex justify-center text-center">
                 <HoverBorderGradient
                   containerClassName="rounded-full"
                   as="button"
@@ -220,7 +221,7 @@ function App() {
                       );
                     }, 100); // 100ms delay
                   }}
-                  className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 px-4 py-2"
+                  className="bg-black text-white flex items-center space-x-2 px-4 py-2"
                 >
                   <SiMinutemailer />
                   <span>Let's Connect</span>
@@ -231,9 +232,9 @@ function App() {
 
 
           {/* About Section */}
-          <section ref={aboutRef} className="scroll-mt-16 h-screen flex items-center justify-center">
+          <section ref={aboutRef} className="scroll-mt-16 h-full flex items-center justify-center">
             <div className="">
-              <h1 className="text-3xl font-bold p-5">
+              <h1 className="text-2xl lg:text-4xl font-bold pb-8">
                 About me
               </h1>
 
@@ -251,7 +252,7 @@ function App() {
                   </p></div>
 
 
-                <div className="w-full h-screen absolute">
+                <div className="w-screen h-screen absolute top-[-100px]">
                   <Hyperspeed
                     effectOptions={{
                       onSpeedUp: () => { },
@@ -294,14 +295,14 @@ function App() {
                 </div>
               </div>
             </div>
-
           </section>
 
+          <div className="w-screen h-[20rem]"></div>
+
           {/* My Tools and Technologies */}
-          <section className="relative h-screen flex items-center justify-center">
+          <section className="relative flex items-center justify-center">
             <div ref={containerRef}>
-              {/* <SplashCursor containerRef={containerRef} /> */}
-              <h1 className="text-3xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
+              <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
                 My Tools and Technologies
               </h1 >
               <TextCursor
@@ -328,22 +329,24 @@ function App() {
             </div>
           </section>
 
+          <div className="w-screen h-[5rem] lg:h-[8rem]"></div>
+
           {/* Quote Section */}
-          <section className="relative h-screen flex flex-col items-center justify-center">
+          <section className="relative flex flex-col items-center justify-center">
             <div
               className=" bg-[#060606] overflow-hidden rounded-md">
               <h1
-                className="md:text-4xl text-xl lg:text-6xl font-bold text-center text-white relative z-20">
+                className="md:text-4xl text-2xl lg:text-6xl font-bold text-center text-white relative z-20">
                 Code in action. Ideas in motion.
               </h1>
-              <div className="w-[40rem] h-40 relative mt-4">
+              <div className="w-[40rem] h-40 relative mt-4 mx-auto">
                 {/* Gradients */}
                 <div
                   className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
                 <div
-                  className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#D856BF] to-transparent h-px w-3/4" />
+                  className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
                 <div
-                  className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent  via-indigo-500 to-transparent h-[5px] w-1/4 blur-sm" />
+                  className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
                 <div
                   className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
 
@@ -363,9 +366,11 @@ function App() {
             </div>
           </section>
 
+          <div className="w-screen h-[1rem]"></div>
+
           {/* Project Section */}
-          <section ref={projectsRef} className="h-full scroll-mt-16">
-            <h1 className="text-3xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
+          <section ref={projectsRef} className=" scroll-mt-16">
+            <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
               My Projects
             </h1>
 
@@ -381,7 +386,7 @@ function App() {
           </section>
 
           {/* Thread Section */}
-          <div className="relative h-[300px] w-screen">
+          <div className="relative lg:h-[350px] w-screen">
             <Threads
               amplitude={1}
               distance={0}
@@ -391,11 +396,11 @@ function App() {
 
 
           {/* Contact Section */}
-          <div ref={contactRef} className="relative gap-4 h-screen flex flex-col scroll-mt-16">
-            <h1 className="text-3xl font-bold text-white text-center">
+          <div ref={contactRef} className="relative gap-4 flex flex-col scroll-mt-16">
+            <h1 className="text-2xl lg:text-4xl font-bold text-white text-center">
               Connect with me
             </h1>
-            <div className="">
+            {/* <div className="">
               <Folder
                 folderName="Open"
                 items={contactItems}
@@ -403,13 +408,27 @@ function App() {
                 size={2.5}
               />
 
+            </div> */}
+
+
+            <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+              <Orb
+                hoverIntensity={0.5}
+                rotateOnHover={true}
+                hue={0}
+                forceHoverState={false}
+              />
+              <a
+                href="https://bento.me/rishika105"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg sm:text-2xl md:text-3xl decoration-white hover:text-white z-10"
+              >
+                Click Me!
+              </a>
             </div>
-
           </div>
-
         </main >
-
-
       </div>
       {/* Footer Section */}
 
