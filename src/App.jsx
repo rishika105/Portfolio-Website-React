@@ -257,7 +257,7 @@ function App() {
                   </p></div>
 
 
-                <div className="w-screen h-screen absolute -top-[150px] z-0">
+                <div className="w-screen h-screen absolute -top-[110px] z-0">
                   <Hyperspeed
                     effectOptions={{
                       onSpeedUp: () => { },
