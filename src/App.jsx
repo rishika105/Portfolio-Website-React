@@ -16,9 +16,33 @@ import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
 import TextCursor from "./components/TextCursor";
 import Orb from "./components/Orb";
+import { useEffect, useState } from "react";
+
+
+
 
 
 function App() {
+
+  const [cardSize, setCardSize] = useState({ width: 420, height: 520 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setCardSize({ width: 350, height: 550 }); // mobile
+      } else if (width < 1024) {
+        setCardSize({ width: 400, height: 560 }); // tablet
+      } else {
+        setCardSize({ width: 450, height: 550 }); // desktop
+      }
+    };
+
+    handleResize(); // Set initially
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   const containerRef = useRef(null);
   const aboutRef = useRef(null);
@@ -86,12 +110,7 @@ function App() {
     }
   ];
 
-
-
-
   const projects = [
-
-
     {
       id: 5,
       title: "E-commerce Platform",
@@ -107,7 +126,7 @@ function App() {
       description: "A GenAI-powered cybersecurity platform for developers that detects code vulnerabilities using models like VulBERTa, VulDeePecker, and GPT, and provides fixes with gamified learning features.",
       repoLink: "https://github.com/rishika105/CodeShield-AI", // replace with actual link
       // demoLink: "https://code-shield-ai-demo.vercel.app", // replace with actual link
-      tags: ["React", "Node.js", "Express.js", "MongoDB", "VulBERTa", "VulDeePecker", "OpenAI", "FlaskAPI"],
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "VulBERTa", "VulDeePecker", "OpenAI", "FlaskAPI"],
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC1qDRCf6ncd7QDgCCl44fxErdzHwdhdo-d6LCjloRmbgFFg3nPzOf2UecMxnRmfWfrSQ&usqp=CAU"
     },
 
@@ -125,7 +144,7 @@ function App() {
       title: "AI Story Builder",
       description: "A fun storytelling game where you and the AI take turns building wild tales across genres — fantasy, mystery, sci-fi & more!",
       repoLink: "https://github.com/rishika105/AI-Story-Builder",
-      tags: ["AI", "React", "Node.js", "Express.js", "MongoDB", "Gemini API", "Three.js"],
+      tags: ["AI", "React.js", "Node.js", "Express.js", "MongoDB", "Gemini API", "Three.js"],
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
     },
     {
@@ -134,36 +153,11 @@ function App() {
       description: "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication roles, course management and payment integration.",
       repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
       demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
-      tags: ["React", "Redux", "Node.js", "Express.js", "MongoDB", "Razorpay", "Cloudinary", "JWT", "Smtp", "Gemini"],
+      tags: ["React.js", "Redux", "Node.js", "Express.js", "MongoDB", "Razorpay", "Cloudinary", "JWT", "Smtp", "Gemini"],
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
     },
 
   ];
-
-
-
-
-  const contactItems = [
-    {
-      name: "GitHub",
-      icon: "https://img.icons8.com/?size=100&id=AZOZNnY73haj&format=png&color=000000",
-      link: "https://github.com/yourusername",
-      openInNewTab: true
-    },
-    {
-      name: "LinkedIn",
-      icon: "https://img.icons8.com/?size=100&id=PmVIP6qPDgZv&format=png&color=000000",
-      link: "https://linkedin.com/in/yourprofile",
-      openInNewTab: true
-    },
-    {
-      name: "Email",
-      icon: "https://img.icons8.com/?size=100&id=37246&format=png&color=000000",
-      link: "mailto:you@example.com"
-    }
-  ];
-
-
 
   return (
     <>
@@ -243,8 +237,8 @@ function App() {
 
 
           {/* About Section */}
-          <section ref={aboutRef} className="scroll-mt-20 h-full flex items-center justify-center">
-            <div className="">
+          <section ref={aboutRef} className="scroll-mt-20 flex items-center justify-center">
+            <div className="z-50">
               <h1 className="text-2xl lg:text-4xl font-bold pb-8">
                 About me
               </h1>
@@ -263,7 +257,7 @@ function App() {
                   </p></div>
 
 
-                <div className="w-screen h-screen absolute top-[-100px]">
+                <div className="w-screen h-screen absolute -top-[150px] z-0">
                   <Hyperspeed
                     effectOptions={{
                       onSpeedUp: () => { },
@@ -308,10 +302,10 @@ function App() {
             </div>
           </section>
 
-          <div className="w-screen h-[20rem]"></div>
+          <div className="w-screen h-[30vh] 2xl:h-[70vh]"></div>
 
           {/* My Tools and Technologies */}
-          <section className="relative flex items-center justify-center">
+          <section className="h-screen relative flex items-center justify-center">
             <div ref={containerRef}>
               <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
                 My Tools and Technologies
@@ -388,7 +382,7 @@ function App() {
                 randomRotation={true}
                 sensitivity={150}
                 sendToBackOnClick={true}
-                cardDimensions={{ width: 420, height: 520 }}
+                cardDimensions={cardSize}
                 projects={projects}
               />
             </div>

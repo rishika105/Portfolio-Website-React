@@ -77,7 +77,7 @@ export default function ProjectStack({
             sensitivity={sensitivity}
           >
             <motion.div
-              className="rounded-xl overflow-hidden border border-gray-800 bg-[#0e0e0e] shadow-2xl"
+              className="rounded-xl w-full -ml-4 md:-ml-0 overflow-hidden border border-gray-800 bg-[#0e0e0e] shadow-2xl"
               onClick={() => sendToBackOnClick && sendToBack(project.id)}
               animate={{
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
