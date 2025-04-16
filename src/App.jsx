@@ -302,10 +302,10 @@ function App() {
             </div>
           </section>
 
-          <div className="w-screen h-[30vh] 2xl:h-[70vh]"></div>
+          <div className="w-screen h-[30vh] 2xl:h-[50vh]"></div>
 
           {/* My Tools and Technologies */}
-          <section className="h-screen relative flex items-center justify-center">
+          <section className="h-full md:h-screen relative flex items-center justify-center">
             <div ref={containerRef}>
               <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
                 My Tools and Technologies
@@ -332,7 +332,7 @@ function App() {
             </div>
           </section>
 
-          <div className="w-screen h-[5rem] lg:h-[8rem]"></div>
+          <div className="w-screen h-[4rem] md:h-[2rem]"></div>
 
           {/* Quote Section */}
           <section className="relative flex flex-col items-center justify-center">
@@ -427,6 +427,8 @@ function App() {
           </section>
         </main >
       </div>
+      
+      <div className="w-screen h-px md:h-[2rem]"></div>
       {/* Footer Section */}
       < Footer />
     </>
