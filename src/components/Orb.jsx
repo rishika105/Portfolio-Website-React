@@ -6,6 +6,7 @@ export default function Orb({
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
+  children,
 }) {
   const ctnDom = useRef(null);
 
@@ -278,5 +279,7 @@ export default function Orb({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
 
-  return <div ref={ctnDom} className="w-full h-full" />;
+  return <div ref={ctnDom} className="w-full h-full" >
+    {children}
+  </div>;
 }

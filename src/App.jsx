@@ -7,7 +7,6 @@ import Squares from "./components/Squares";
 import reactIcon from "./assets/react.svg";
 import { SiMinutemailer } from "react-icons/si";
 import springbootIcon from "./assets/springboot.png";
-import Folder from "./components/Folder";
 import Hyperspeed from "./components/Hyperspeed";
 import Threads from "./components/Threads";
 import Footer from "./components/Footer";
@@ -25,7 +24,6 @@ function App() {
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
-
 
 
   const logoImgs = [
@@ -92,8 +90,10 @@ function App() {
 
 
   const projects = [
+
+
     {
-      id: 1,
+      id: 5,
       title: "E-commerce Platform",
       description: "A full-stack E-commerce application built with Angular and Spring Boot with authentication roles and payment features.",
       repoLink: "https://github.com/rishika105/Ecommerce",
@@ -102,7 +102,17 @@ function App() {
     },
 
     {
-      id: 2,
+      id: 4,
+      title: "CodeShield AI",
+      description: "A GenAI-powered cybersecurity platform for developers that detects code vulnerabilities using models like VulBERTa, VulDeePecker, and GPT, and provides fixes with gamified learning features.",
+      repoLink: "https://github.com/rishika105/CodeShield-AI", // replace with actual link
+      // demoLink: "https://code-shield-ai-demo.vercel.app", // replace with actual link
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "VulBERTa", "VulDeePecker", "OpenAI", "FlaskAPI"],
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC1qDRCf6ncd7QDgCCl44fxErdzHwdhdo-d6LCjloRmbgFFg3nPzOf2UecMxnRmfWfrSQ&usqp=CAU"
+    },
+
+    {
+      id: 3,
       title: "Event Management System",
       description: "A collaborative project using Advanced Java with MVC + DAO design pattern.",
       repoLink: "https://github.com/rishika105/Event-Management-Advanced-Java",
@@ -111,7 +121,7 @@ function App() {
     },
 
     {
-      id: 3,
+      id: 2,
       title: "AI Story Builder",
       description: "A fun storytelling game where you and the AI take turns building wild tales across genres — fantasy, mystery, sci-fi & more!",
       repoLink: "https://github.com/rishika105/AI-Story-Builder",
@@ -119,14 +129,15 @@ function App() {
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      id: 4,
+      id: 1,
       title: "EdTech Platform",
       description: "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication roles, course management and payment integration.",
       repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
       demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
-      tags: ["React", "Redux", "Node.js", "Express.js", "MongoDB", "Razorpay", "Cloudinary", "JWT", "Smtp"],
+      tags: ["React", "Redux", "Node.js", "Express.js", "MongoDB", "Razorpay", "Cloudinary", "JWT", "Smtp", "Gemini"],
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
     },
+
   ];
 
 
@@ -232,7 +243,7 @@ function App() {
 
 
           {/* About Section */}
-          <section ref={aboutRef} className="scroll-mt-16 h-full flex items-center justify-center">
+          <section ref={aboutRef} className="scroll-mt-20 h-full flex items-center justify-center">
             <div className="">
               <h1 className="text-2xl lg:text-4xl font-bold pb-8">
                 About me
@@ -324,8 +335,6 @@ function App() {
                 bgColor="#060606"
                 bgAccentColor="#111111"
               />
-
-
             </div>
           </section>
 
@@ -369,7 +378,7 @@ function App() {
           <div className="w-screen h-[1rem]"></div>
 
           {/* Project Section */}
-          <section ref={projectsRef} className=" scroll-mt-16">
+          <section ref={projectsRef} className=" scroll-mt-20">
             <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
               My Projects
             </h1>
@@ -386,67 +395,48 @@ function App() {
           </section>
 
           {/* Thread Section */}
-          <div className="relative lg:h-[350px] w-screen">
+          <section className="relative lg:h-[350px] w-screen">
             <Threads
               amplitude={1}
               distance={0}
               enableMouseInteraction={true}
             />
-          </div>
+          </section>
 
 
           {/* Contact Section */}
-          <div ref={contactRef} className="relative gap-4 flex flex-col scroll-mt-16">
+          <section ref={contactRef} className="relative gap-4 flex flex-col scroll-mt-20">
             <h1 className="text-2xl lg:text-4xl font-bold text-white text-center">
               Connect with me
             </h1>
-            {/* <div className="">
-              <Folder
-                folderName="Open"
-                items={contactItems}
-                color="#00d8ff"
-                size={2.5}
-              />
 
-            </div> */}
-
-
-            <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+            <div className="w-[100%] h-[500px] lg:h-[600px] relative">
               <Orb
                 hoverIntensity={0.5}
                 rotateOnHover={true}
                 hue={0}
                 forceHoverState={false}
-              />
-              <a
-                href="https://bento.me/rishika105"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg sm:text-2xl md:text-3xl decoration-white hover:text-white z-10"
               >
-                Click Me!
-              </a>
+                {/* This will be rendered inside the Orb's container div */}
+                <a
+                  href="https://bento.me/rishika105"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                >
+                  <span className="text-white font-bold text-lg sm:text-2xl md:text-3xl hover:text-white pointer-events-auto cursor-pointer">
+                    Click Me!
+                  </span>
+                </a>
+              </Orb>
             </div>
-          </div>
+          </section>
         </main >
       </div>
       {/* Footer Section */}
-
-
       < Footer />
     </>
   );
 }
 
 export default App;
-
-
-{/* sec-2 */ }
-{/* <div>
-          <SpotlightCard
-            className="custom-spotlight-card"
-            spotlightColor="rgba(0, 229, 255, 0.2)"
-          >
-            {/* // Content goes here 
-          </SpotlightCard>
-        </div> */}
