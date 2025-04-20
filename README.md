@@ -10,9 +10,10 @@ This is my personal portfolio where I showcase my projects, skills, and journey 
 - [Tailwind CSS](https://tailwindcss.com/)
   
 🎯 **Purpose:**  
+
 Designed to create a clean, responsive, and interactive experience for visitors to explore my work and get to know me better. I used **React Bits** and **Aceternity UI** extensively — they offer **awesome pre-built components** like buttons, cards, navbars, animations, and more. If you're a developer, **I highly recommend checking them out too** — they can save you tons of time and help you build sleek designs faster!
 
-🔗 **Live Website:** [your-website-link.com](https://rishika.is-a.dev/)
+🔗 **Live Website:** https://rishika.is-a.dev/
 
 ---
 
