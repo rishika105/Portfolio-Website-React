@@ -124,8 +124,8 @@ function App() {
       id: 4,
       title: "CodeShield AI",
       description: "A GenAI-powered cybersecurity platform for developers that detects code vulnerabilities using models like VulBERTa, VulDeePecker, and GPT, and provides fixes with gamified learning features.",
-      repoLink: "https://github.com/rishika105/CodeShield-AI", // replace with actual link
-      // demoLink: "https://code-shield-ai-demo.vercel.app", // replace with actual link
+      repoLink: "https://github.com/rishika105/CodeShield-AI", 
+      demoLink: "https://code-shield-ai.vercel.app/", 
       tags: ["React.js", "Node.js", "Express.js", "MongoDB", "VulBERTa", "VulDeePecker", "OpenAI", "FlaskAPI"],
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC1qDRCf6ncd7QDgCCl44fxErdzHwdhdo-d6LCjloRmbgFFg3nPzOf2UecMxnRmfWfrSQ&usqp=CAU"
     },
@@ -144,6 +144,7 @@ function App() {
       title: "AI Story Builder",
       description: "A fun storytelling game where you and the AI take turns building wild tales across genres — fantasy, mystery, sci-fi & more!",
       repoLink: "https://github.com/rishika105/AI-Story-Builder",
+      demoLink: "https://ai-story-builder-seven.vercel.app/", 
       tags: ["AI", "React.js", "Node.js", "Express.js", "MongoDB", "Gemini API", "Three.js"],
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
     },
