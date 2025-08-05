@@ -163,24 +163,6 @@ function App() {
     },
 
     {
-      id: 2,
-      title: "AI Story Builder",
-      description:
-        "A fun storytelling game where you and the AI take turns building wild tales across genres — fantasy, mystery, sci-fi & more!",
-      repoLink: "https://github.com/rishika105/AI-Story-Builder",
-      demoLink: "https://ai-story-builder-seven.vercel.app/",
-      tags: [
-        "AI",
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Gemini API",
-        "Three.js",
-      ],
-      image: aibuilder,
-    },
-    {
       id: 1,
       title: "EdTech Platform",
       description:
