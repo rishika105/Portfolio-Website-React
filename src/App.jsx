@@ -14,12 +14,10 @@ import { useRef } from "react";
 import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
-import TextCursor from "./components/TextCursor";
 import Orb from "./components/Orb";
 import { useEffect, useState } from "react";
 import codeShield from "./assets/images/cs.png";
 import ecom from "./assets/images/ecom.png";
-import aibuilder from "./assets/images/aibuilder.png";
 import edtech from "./assets/images/edtech.avif";
 import event from "./assets/images/event.png";
 
@@ -106,8 +104,8 @@ function App() {
     },
     {
       imgUrl:
-        "https://img.icons8.com/?size=100&id=GflC6KLkdd0Y&format=png&color=FFFFFF",
-      altText: "figma logo",
+        "https://img.icons8.com/?size=100&id=38622&format=png&color=FFFFFF",
+      altText: "postgres logo",
     },
     {
       imgUrl:
@@ -118,6 +116,36 @@ function App() {
       imgUrl:
         "https://img.icons8.com/?size=100&id=32891&format=png&color=FFFFFF",
       altText: "github logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=dmAy2s25QyTr&format=png&color=FFFFFF",
+      altText: "redis logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=TxnDAVs2niTV&format=png&color=FFFFFF",
+      altText: "kafka logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=XgY3SKn2Tlao&format=png&color=FFFFFF",
+      altText: "graphql logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=gwR0hbBi5JeZ&format=png&color=FFFFFF",
+      altText: "nextjs logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=AtEKkdldZfri&format=png&color=FFFFFF",
+      altText: "aws logo",
+    },
+    {
+      imgUrl:
+        "https://img.icons8.com/?size=100&id=q80msdC3oJiy&format=png&color=FFFFFF",
+      altText: "docker logo",
     },
   ];
 
@@ -245,8 +273,9 @@ function App() {
 
               <div className="text-gray-300 w-full text-center md:w-[50%]  flex items-center text-xl font-medium">
                 I'm a software enthusiast passionate about problem-solving, web
-                development, and gaining knowledge in blockchain. I love staying
-                updated with tech trends, and continuously learning to adapt.
+                development, Cloud and AI. I love staying updated with tech
+                trends, and continuously learning to adapt to new technologies
+                and exploring them.
               </div>
 
               <div className="flex justify-center text-center">
@@ -354,16 +383,6 @@ function App() {
               <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
                 My Tools and Technologies
               </h1>
-              <TextCursor
-                text="⚛️"
-                delay={0.01}
-                spacing={80}
-                followMouseDirection={true}
-                randomFloat={true}
-                exitDuration={0.3}
-                removalInterval={20}
-                maxPoints={10}
-              />
               <LogoWall
                 items={logoImgs}
                 direction="horizontal"
