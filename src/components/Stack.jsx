@@ -42,7 +42,7 @@ export default function ProjectStack({
   cardDimensions = { width: 350, height: 500 },
   projects = [],
   animationConfig = { stiffness: 260, damping: 20 },
-  sendToBackOnClick = true
+  sendToBackOnClick = true,
 }) {
   const [cards, setCards] = useState(projects);
 
@@ -66,9 +66,7 @@ export default function ProjectStack({
       }}
     >
       {cards.map((project, index) => {
-        const randomRotate = randomRotation
-          ? Math.random() * 10 - 5
-          : 0;
+        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
 
         return (
           <CardRotate
@@ -114,7 +112,6 @@ export default function ProjectStack({
                     </h3>
                     <div className="h-[2px] w-20 bg-gradient-to-r from-[#40ffaa] to-[#4079ff] mb-3" />
 
-
                     {/* Project description */}
                     <div className=" px-3 flex mx-auto">
                       <p className="text-gray-400 text-sm leading-relaxed">
@@ -122,23 +119,21 @@ export default function ProjectStack({
                       </p>
                     </div>
                   </div>
-
-        
                 </div>
 
-                          {/* Tags */}
-                          {project.tags && (
-                    <div className="px-6 py-3 flex flex-wrap gap-2">
-                      {project.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-900 rounded-full text-xs text-[#40ffaa] border border-gray-800"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                {/* Tags */}
+                {project.tags && (
+                  <div className="px-6 py-3 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-gray-900 rounded-full text-xs text-[#40ffaa] border border-gray-800"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Links with hover effects */}
                 <div className="px-6 pb-6 flex justify-between">
@@ -166,8 +161,6 @@ export default function ProjectStack({
                   )}
                 </div>
 
-
-
                 {/* Subtle sparkle effect */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <SparklesCore
@@ -179,9 +172,7 @@ export default function ProjectStack({
                     particleColor="#FFFFFF"
                   />
                 </div>
-
               </div>
-
             </motion.div>
           </CardRotate>
         );

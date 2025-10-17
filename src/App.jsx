@@ -4,22 +4,19 @@ import LogoWall from "./components/LogoWall";
 import Navbar from "./components/Navbar";
 import SplitText from "./components/SplitText";
 import Squares from "./components/Squares";
-import reactIcon from "./assets/react.svg";
 import { SiMinutemailer } from "react-icons/si";
-import springbootIcon from "./assets/springboot.png";
-import Hyperspeed from "./components/Hyperspeed";
 import Threads from "./components/Threads";
 import Footer from "./components/Footer";
 import { useRef } from "react";
-import { SparklesCore } from "./components/Sparkles";
 import { HoverBorderGradient } from "./components/HoverBorderGradient";
 import ProjectStack from "./components/Stack";
 import Orb from "./components/Orb";
 import { useEffect, useState } from "react";
-import codeShield from "./assets/images/cs.png";
-import ecom from "./assets/images/ecom.png";
-import edtech from "./assets/images/edtech.avif";
-import event from "./assets/images/event.png";
+import { CardSpotlightDemo } from "./components/CardSpotlight";
+import { projects } from "./assets/data/project";
+import { experiences } from "./assets/data/experience";
+import { logoImgs } from "./assets/data/techlogos";
+import Education from "./components/Education";
 
 function App() {
   const [cardSize, setCardSize] = useState({ width: 420, height: 520 });
@@ -45,173 +42,6 @@ function App() {
   const aboutRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
-
-  const logoImgs = [
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=QADwelVnDrSS&format=png&color=FFFFFF",
-      altText: "HTML5 Logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=UpSCHTwpywad&format=png&color=FFFFFF",
-      altText: "CSS3 Logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=102838&format=png&color=FFFFFF",
-      altText: "JavaScript Logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=0FC8MqL9J16f&format=png&color=FFFFFF",
-      altText: "typescript Logo",
-    },
-    {
-      imgUrl: reactIcon,
-      altText: "React Bits Logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=71256&format=png&color=FFFFFF",
-      altText: "Angular Logo",
-    },
-    {
-      imgUrl: springbootIcon,
-      altText: "springboot logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=FFFFFF",
-      altText: "express logo",
-    },
-
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=t9oCxEN7McHZ&format=png&color=FFFFFF",
-      altText: "Node.js Logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=WC9GOvjtKVuH&format=png&color=FFFFFF",
-      altText: "mongoDB logo",
-    },
-
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=39858&format=png&color=FFFFFF",
-      altText: "my sql logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=38622&format=png&color=FFFFFF",
-      altText: "postgres logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=KIcFwp9MNQL5&format=png&color=FFFFFF",
-      altText: "postman logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=32891&format=png&color=FFFFFF",
-      altText: "github logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=dmAy2s25QyTr&format=png&color=FFFFFF",
-      altText: "redis logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=TxnDAVs2niTV&format=png&color=FFFFFF",
-      altText: "kafka logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=XgY3SKn2Tlao&format=png&color=FFFFFF",
-      altText: "graphql logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=gwR0hbBi5JeZ&format=png&color=FFFFFF",
-      altText: "nextjs logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=AtEKkdldZfri&format=png&color=FFFFFF",
-      altText: "aws logo",
-    },
-    {
-      imgUrl:
-        "https://img.icons8.com/?size=100&id=q80msdC3oJiy&format=png&color=FFFFFF",
-      altText: "docker logo",
-    },
-  ];
-
-  const projects = [
-    {
-      id: 5,
-      title: "E-commerce Platform",
-      description:
-        "A full-stack E-commerce application built with Angular and Spring Boot with authentication roles and payment features.",
-      repoLink: "https://github.com/rishika105/Ecommerce",
-      tags: ["Angular", "Spring Boot", "MySQL", "Cloudinary", "JWT"],
-      image: ecom,
-    },
-
-    {
-      id: 4,
-      title: "CodeShield AI",
-      description:
-        "A GenAI-powered cybersecurity platform for developers that detects code vulnerabilities using models like VulBERTa, VulDeePecker, and GPT, and provides fixes with gamified learning features.",
-      repoLink: "https://github.com/rishika105/CodeShield-AI",
-      demoLink: "https://code-shield-ai.vercel.app/",
-      tags: [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "VulBERTa",
-        "VulDeePecker",
-        "OpenAI",
-        "FlaskAPI",
-      ],
-      image: codeShield,
-    },
-
-    {
-      id: 3,
-      title: "Event Management System",
-      description:
-        "A collaborative project using Advanced Java with MVC + DAO design pattern.",
-      repoLink: "https://github.com/rishika105/Event-Management-Advanced-Java",
-      tags: ["JSP", "Servlet", "Tomcat", "MySQL", "Razorpay"],
-      image: event,
-    },
-
-    {
-      id: 1,
-      title: "EdTech Platform",
-      description:
-        "An interactive Ed-Tech platform built using the MERN stack with features like JWT authentication roles, course management and payment integration.",
-      repoLink: "https://github.com/rishika105/Study-Notion-EdTech",
-      demoLink: "https://study-notion-ed-tech-frontend-phi.vercel.app",
-      tags: [
-        "React.js",
-        "Redux",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Razorpay",
-        "Cloudinary",
-        "JWT",
-        "Smtp",
-        "Gemini",
-      ],
-      image: edtech,
-    },
-  ];
 
   return (
     <>
@@ -302,85 +132,23 @@ function App() {
             </div>
           </section>
 
-          {/* About Section */}
+          {/* Education Section */}
           <section
             ref={aboutRef}
             className="scroll-mt-20 flex items-center justify-center"
           >
-            <div className="z-50">
-              <h1 className="text-2xl lg:text-4xl font-bold pb-8">About me</h1>
-
-              <div className="relative flex flex-col items-center justify-center">
-                <div className="flex flex-col z-50">
-                  <p className="text-center max-w-3xl mx-auto text-lg sm:text-xl px-4">
-                    From debugging my first “Hello World” to building full-stack
-                    applications and solving 400+ problems on LeetCode and GFG —
-                    my journey has been fueled by curiosity and growth. Whether
-                    it's freelance work or hackathons, I love turning complex
-                    problems into elegant solutions.
-                  </p>
-
-                  <p className="mt-10 text-center italic text-sm text-gray-400">
-                    “I believe growth isn’t linear — it’s a hyperspeed journey
-                    through ideas, code, and creativity.”
-                  </p>
-                  <p className="mt-8 text-center text-md text-gray-300">
-                    When I’m not coding or crushing bugs, you’ll find me
-                    sketching, reading books, or vibing with music.
-                  </p>
-                </div>
-
-                <div className="w-screen h-screen absolute -top-[110px] z-0">
-                  <Hyperspeed
-                    effectOptions={{
-                      onSpeedUp: () => {},
-                      onSlowDown: () => {},
-                      distortion: "turbulentDistortion",
-                      length: 400,
-                      roadWidth: 10,
-                      islandWidth: 2,
-                      lanesPerRoad: 4,
-                      fov: 90,
-                      fovSpeedUp: 150,
-                      speedUp: 2,
-                      carLightsFade: 0.4,
-                      totalSideLightSticks: 20,
-                      lightPairsPerRoadWay: 40,
-                      shoulderLinesWidthPercentage: 0.05,
-                      brokenLinesWidthPercentage: 0.1,
-                      brokenLinesLengthPercentage: 0.5,
-                      lightStickWidth: [0.12, 0.5],
-                      lightStickHeight: [1.3, 1.7],
-                      movingAwaySpeed: [60, 80],
-                      movingCloserSpeed: [-120, -160],
-                      carLightsLength: [400 * 0.03, 400 * 0.2],
-                      carLightsRadius: [0.05, 0.14],
-                      carWidthPercentage: [0.3, 0.5],
-                      carShiftX: [-0.8, 0.8],
-                      carFloorSeparation: [0, 5],
-                      colors: {
-                        roadColor: 0x080808,
-                        islandColor: 0x0a0a0a,
-                        background: 0x000000,
-                        shoulderLines: 0xffffff,
-                        brokenLines: 0xffffff,
-                        leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
-                        rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
-                        sticks: 0x03b3c3,
-                      },
-                    }}
-                  />
-                </div>
-              </div>
+            <div className="">
+              <h1 className="text-2xl lg:text-4xl font-bold pb-8">
+                My Education
+              </h1>
+              <Education />
             </div>
           </section>
 
-          <div className="w-screen h-[30vh] 2xl:h-[50vh]"></div>
-
           {/* My Tools and Technologies */}
-          <section className="h-full md:h-screen relative flex items-center justify-center">
+          <section className="h-full md:min-h-[80vh] relative flex items-center justify-center mb-10">
             <div ref={containerRef}>
-              <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center mt-10 bg-[#060606]">
+              <h1 className="text-2xl lg:text-4xl font-bold p-5 flex justify-center items-center bg-[#060606]">
                 My Tools and Technologies
               </h1>
               <LogoWall
@@ -395,41 +163,8 @@ function App() {
             </div>
           </section>
 
-          <div className="w-screen h-[4rem] md:h-[2rem]"></div>
-
-          {/* Quote Section */}
-          <section className="relative flex flex-col items-center justify-center">
-            <div className=" bg-[#060606] overflow-hidden rounded-md">
-              <h1 className="md:text-4xl text-2xl lg:text-6xl font-bold text-center text-white relative z-20">
-                Code in action. Ideas in motion.
-              </h1>
-              <div className="w-[40rem] h-40 relative mt-4 mx-auto">
-                {/* Gradients */}
-                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
-
-                {/* Core component */}
-                <SparklesCore
-                  background="transparent"
-                  minSize={0.4}
-                  maxSize={1}
-                  particleDensity={1200}
-                  className="w-full h-full"
-                  particleColor="#FFFFFF"
-                />
-
-                {/* Radial Gradient to prevent sharp edges */}
-                <div className="absolute inset-0 w-full h-full bg-[#060606] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-              </div>
-            </div>
-          </section>
-
-          <div className="w-screen h-[1rem]"></div>
-
           {/* Project Section */}
-          <section ref={projectsRef} className=" scroll-mt-20">
+          <section ref={projectsRef} className=" scroll-mt-14">
             <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
               My Projects
             </h1>
@@ -442,6 +177,18 @@ function App() {
                 cardDimensions={cardSize}
                 projects={projects}
               />
+            </div>
+          </section>
+
+          <div className="w-screen h-[1vh] 2xl:h-[5vh]"></div>
+
+          {/* Experiences */}
+          <section>
+            <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
+              Experiences
+            </h1>
+            <div className="mt-10">
+              <CardSpotlightDemo experiences={experiences} />
             </div>
           </section>
 

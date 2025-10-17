@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,8 +11,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 a {
   font-weight: 500;
@@ -74,7 +72,6 @@ button:focus-visible {
 @tailwind components;
 @tailwind utilities;
 
-
 .squares-canvas {
   width: 100%;
   height: 100%;
@@ -86,13 +83,11 @@ button:focus-visible {
   animation-direction: reverse;
 }
 
-html, body {
+html,
+body {
   background: #060606; /* Fallback */
- 
 }
-
 
 /* 060606 dark theme */
 
 /* git add .; git commit -m "updated"; git push */
-
