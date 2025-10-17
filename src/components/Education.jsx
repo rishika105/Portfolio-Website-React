@@ -2,7 +2,7 @@ import { educationData } from "../assets/data/education";
 
 const Education = () => {
   return (
-    <div className="relative">
+    <div className="relative mx-auto">
       {/* Vertical line */}
       <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
 
@@ -12,8 +12,8 @@ const Education = () => {
           <div className="absolute left-4 w-3 h-3 rounded-full bg-blue-400 group-hover:bg-purple-400 transition-colors duration-300 transform -translate-x-1.5"></div>
 
           {/* Content */}
-          <div className="ml-12 flex-1 w-full">
-            <div className="bg-[#121212] rounded-lg p-6 border-l-4 border-blue-500 hover:border-purple-500 transition-all duration-300 hover:bg-gray-750">
+          <div className="ml-12 flex-1 w-full mx-auto">
+            <div className="bg-[#121212] w-[90%] md:w-full rounded-lg p-6 border-l-4 border-blue-500 hover:border-purple-500 transition-all duration-300 hover:bg-gray-750">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                 <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors">
                   {item.title}

@@ -4,7 +4,7 @@ export function CardSpotlightDemo({ experiences }) {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
       {experiences.map((exp, index) => (
-        <CardSpotlight key={index} className="h-auto w-96 p-6 group">
+        <CardSpotlight key={index} className="h-auto w-80 md:w-96 p-6 group">
           <p className="text-xl font-bold relative z-20 text-white">
             {exp.heading}
           </p>
