@@ -163,13 +163,15 @@ function App() {
             </div>
           </section>
 
+          <div className="h-4 md:h-0"></div>
+
           {/* Project Section */}
-          <section ref={projectsRef} className=" scroll-mt-14">
-            <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606]">
+          <section ref={projectsRef} className="flex flex-col">
+            <h1 className="text-2xl lg:text-4xl font-bold pb-5 flex justify-center items-center bg-[#060606] ">
               My Projects
             </h1>
 
-            <div className=" flex items-center justify-center p-4">
+            <div className=" flex items-center justify-center">
               <ProjectStack
                 randomRotation={true}
                 sensitivity={150}
