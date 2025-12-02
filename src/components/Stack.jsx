@@ -1,7 +1,8 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Add useEffect import
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { SparklesCore } from "./Sparkles";
+import { FaGithub } from "react-icons/fa";
 
 function CardRotate({ children, onSendToBack, sensitivity }) {
   const x = useMotionValue(0);
@@ -43,8 +44,27 @@ export default function ProjectStack({
   projects = [],
   animationConfig = { stiffness: 260, damping: 20 },
   sendToBackOnClick = true,
+  githubProfile = "https://github.com/rishika105",
 }) {
-  const [cards, setCards] = useState(projects);
+  const [cards, setCards] = useState([]);
+
+  // Create the GitHub explore card
+  const exploreGithubCard = {
+    id: "github-explore",
+    type: "github",
+    title: "Explore More",
+    description: "Check out all my projects and contributions on GitHub",
+    image: "https://images.unsplash.com/photo-1624272949900-9ae4c56397e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["All Projects", "Open Source", "Contributions"],
+    repoLink: githubProfile,
+  };
+
+  // Initialize cards with GitHub card at the end (top of the stack)
+  useEffect(() => {
+    // GitHub card should be first in array so it renders last (on top)
+    const initialCards = [exploreGithubCard, ...projects];
+    setCards(initialCards);
+  }, [projects, githubProfile]);
 
   const sendToBack = (id) => {
     setCards((prev) => {
@@ -67,6 +87,7 @@ export default function ProjectStack({
     >
       {cards.map((project, index) => {
         const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
+        const isGithubCard = project.type === "github";
 
         return (
           <CardRotate
@@ -78,6 +99,7 @@ export default function ProjectStack({
               className="rounded-xl w-full -ml-4 md:-ml-0 overflow-hidden border border-gray-800 bg-[#0e0e0e] shadow-2xl"
               onClick={() => sendToBackOnClick && sendToBack(project.id)}
               animate={{
+                // Adjust rotation to account for GitHub card being first in array
                 rotateZ: (cards.length - index - 1) * 4 + randomRotate,
                 scale: 1 + index * 0.06 - cards.length * 0.06,
                 transformOrigin: "90% 90%",
@@ -95,25 +117,45 @@ export default function ProjectStack({
             >
               <div className="h-full flex flex-col relative gap-4">
                 <div className="flex-1 flex flex-col">
-                  {/* Project image with gradient overlay */}
+                  {/* Project image with gradient overlay - Special styling for GitHub card */}
                   <div className="h-48 overflow-hidden relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover pointer-events-none"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    {isGithubCard ? (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
+                        <FaGithub className="text-white text-8xl opacity-80" />
+                      </div>
+                    ) : (
+                      <>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover pointer-events-none"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      </>
+                    )}
                   </div>
 
                   {/* Project title with neon accent */}
                   <div className="px-6 pt-4">
                     <h3 className="text-2xl font-bold text-white mb-1">
-                      {project.title}
+                      {isGithubCard ? (
+                        <span className="flex items-center gap-2">
+                          <FaGithub className="text-2xl" />
+                          {project.title}
+                        </span>
+                      ) : (
+                        project.title
+                      )}
                     </h3>
-                    <div className="h-[2px] w-20 bg-gradient-to-r from-[#40ffaa] to-[#4079ff] mb-3" />
+                    <div 
+                      className={`h-[2px] w-20 mb-3 ${isGithubCard 
+                        ? "bg-gradient-to-r from-purple-500 to-pink-500" 
+                        : "bg-gradient-to-r from-[#40ffaa] to-[#4079ff]"
+                      }`}
+                    />
 
                     {/* Project description */}
-                    <div className=" px-3 flex mx-auto">
+                    <div className="px-3 flex mx-auto">
                       <p className="text-gray-400 text-sm leading-relaxed">
                         {project.description}
                       </p>
@@ -127,7 +169,11 @@ export default function ProjectStack({
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-gray-900 rounded-full text-xs text-[#40ffaa] border border-gray-800"
+                        className={`px-3 py-1 rounded-full text-xs border ${
+                          isGithubCard
+                            ? "bg-gray-900 text-purple-400 border-purple-800"
+                            : "bg-gray-900 text-[#40ffaa] border-gray-800"
+                        }`}
                       >
                         {tag}
                       </span>
@@ -137,39 +183,53 @@ export default function ProjectStack({
 
                 {/* Links with hover effects */}
                 <div className="px-6 pb-6 flex justify-between">
-                  {project.repoLink && (
+                  {isGithubCard ? (
                     <a
-                      href={project.repoLink}
+                      href={githubProfile}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center text-gray-400 hover:text-[#4079ff] transition-colors duration-300 group"
+                      className="flex items-center text-gray-400 hover:text-purple-400 transition-colors duration-300 group w-full justify-center"
                     >
-                      <FiGithub className="mr-2 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm">Repository</span>
+                      <FaGithub className="mr-2 text-2xl group-hover:scale-110 transition-transform" />
+                      <span className="text-lg font-semibold">Explore GitHub Profile</span>
                     </a>
-                  )}
-                  {project.demoLink && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-400 hover:text-[#40ffaa] transition-colors duration-300 group"
-                    >
-                      <FiExternalLink className="mr-2 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm">Live Demo</span>
-                    </a>
+                  ) : (
+                    <>
+                      {project.repoLink && (
+                        <a
+                          href={project.repoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-gray-400 hover:text-[#4079ff] transition-colors duration-300 group"
+                        >
+                          <FiGithub className="mr-2 group-hover:scale-110 transition-transform" />
+                          <span className="text-sm">Repository</span>
+                        </a>
+                      )}
+                      {project.demoLink && (
+                        <a
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-gray-400 hover:text-[#40ffaa] transition-colors duration-300 group"
+                        >
+                          <FiExternalLink className="mr-2 group-hover:scale-110 transition-transform" />
+                          <span className="text-sm">Live Demo</span>
+                        </a>
+                      )}
+                    </>
                   )}
                 </div>
 
-                {/* Subtle sparkle effect */}
+                {/* Subtle sparkle effect - More intense for GitHub card */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <SparklesCore
                     background="transparent"
-                    minSize={0.4}
-                    maxSize={1}
-                    particleDensity={15}
+                    minSize={isGithubCard ? 0.6 : 0.4}
+                    maxSize={isGithubCard ? 1.2 : 1}
+                    particleDensity={isGithubCard ? 25 : 15}
                     className="w-full h-full"
-                    particleColor="#FFFFFF"
+                    particleColor={isGithubCard ? "#C084FC" : "#FFFFFF"}
                   />
                 </div>
               </div>

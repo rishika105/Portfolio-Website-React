@@ -87,7 +87,7 @@ export const projects = [
     tags: [
       "Next.js",
       "Tailwind",
-      "Firebase",
+      "Clerk",
       "Express.js",
       "Docker",
       "AWS",
