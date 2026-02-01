@@ -217,7 +217,7 @@ function App() {
               >
                 {/* This will be rendered inside the Orb's container div */}
                 <a
-                  href="https://bento.me/rishika105"
+                  href="https://linktr.ee/rishikaagarwal2316"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute inset-0 flex items-center justify-center pointer-events-none"
